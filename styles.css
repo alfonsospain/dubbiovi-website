@@ -66,31 +66,50 @@ h1, h2, h3, h4, .font-heading {
 }
 
 /* Ensure hero heading behaves correctly across viewports */
-.reveal h1 {
-    line-height: 1.1;
+.hero-title {
+    line-height: 1.05 !important;
 }
+
+@media (min-width: 768px) {
+    .academic-dubbing-line,
+    .made-simple-line {
+        white-space: nowrap !important;
+    }
+}
+
 @media (min-width: 1280px) {
-    .reveal h1 {
-        white-space: nowrap !important;
-        font-size: 4.5rem !important; /* 72px */
+    .hero-title-brand {
+        font-size: 5rem !important; /* 80px */
+    }
+    .hero-title-sub {
+        font-size: 3.5rem !important; /* 56px */
     }
 }
+
 @media (min-width: 1024px) and (max-width: 1279px) {
-    .reveal h1 {
-        white-space: nowrap !important;
-        font-size: 3.75rem !important; /* 60px */
+    .hero-title-brand {
+        font-size: 4rem !important; /* 64px */
+    }
+    .hero-title-sub {
+        font-size: 2.85rem !important; /* 45px */
     }
 }
+
 @media (min-width: 768px) and (max-width: 1023px) {
-    .reveal h1 {
-        font-size: 3rem !important; /* 48px */
-        line-height: 1.15;
+    .hero-title-brand {
+        font-size: 3.5rem !important; /* 56px */
+    }
+    .hero-title-sub {
+        font-size: 2.5rem !important; /* 40px */
     }
 }
+
 @media (max-width: 767px) {
-    .reveal h1 {
-        font-size: 2.5rem !important; /* 40px */
-        line-height: 1.15;
+    .hero-title-brand {
+        font-size: 2.75rem !important; /* 44px */
+    }
+    .hero-title-sub {
+        font-size: 2rem !important; /* 32px */
     }
 }
 
