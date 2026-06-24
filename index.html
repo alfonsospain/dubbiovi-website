@@ -682,137 +682,67 @@
                 </p>
             </div>
 
-            <!-- Responsive Screenshot Placeholder Cards -->
+            <!-- Responsive Screenshot Cards -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 reveal">
                 
-                <!-- Placeholder Card 1: AI Transcription -->
-                <div class="glass-card rounded-2xl border-white/10 overflow-hidden flex flex-col justify-between h-[400px] hover:border-blue-500/30 transition-all duration-300">
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <!-- Top mockup segment: simulates transcription layout -->
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between border-b border-white/5 pb-3">
-                                <span class="text-xs font-semibold text-blue-400 tracking-wider">AUDIO ANALYZER</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-300 py-0.5 px-2 rounded-full border border-blue-500/20">Active</span>
-                            </div>
-                            <!-- Mock Waveform -->
-                            <div class="flex items-end justify-between h-20 gap-[3px] px-2 bg-slate-950/40 rounded-lg border border-white/5">
-                                <div class="w-1 bg-blue-500/30 h-10 rounded-full"></div>
-                                <div class="w-1 bg-blue-500/40 h-14 rounded-full"></div>
-                                <div class="w-1 bg-blue-500/60 h-8 rounded-full"></div>
-                                <div class="w-1 bg-blue-500/80 h-16 rounded-full"></div>
-                                <div class="w-1 bg-violet-500 h-24 rounded-full"></div>
-                                <div class="w-1 bg-violet-400 h-12 rounded-full"></div>
-                                <div class="w-1 bg-purple-500 h-18 rounded-full"></div>
-                                <div class="w-1 bg-blue-500/90 h-28 rounded-full"></div>
-                                <div class="w-1 bg-blue-500 h-16 rounded-full"></div>
-                                <div class="w-1 bg-violet-500/80 h-10 rounded-full"></div>
-                                <div class="w-1 bg-purple-500/60 h-14 rounded-full"></div>
-                                <div class="w-1 bg-blue-500/40 h-6 rounded-full"></div>
-                                <div class="w-1 bg-blue-500/30 h-12 rounded-full"></div>
-                            </div>
-                            <!-- Mock Transcript rows -->
-                            <div class="space-y-2 text-[11px] font-mono text-gray-400">
-                                <div class="flex gap-2"><span class="text-blue-400">[00:01.20]</span> <span>Initial video audio signal detected...</span></div>
-                                <div class="flex gap-2"><span class="text-blue-400">[00:04.50]</span> <span>Hello and welcome to the lecture.</span></div>
-                            </div>
+                <!-- Screenshot Card 1: Main Workspace -->
+                <div class="glass-card rounded-2xl border-white/10 overflow-hidden cursor-pointer group hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between h-auto" onclick="openLightbox('assets/screenshots/main-workspace.png', 'Main Workspace')">
+                    <div class="relative overflow-hidden aspect-[16/10] bg-slate-950">
+                        <img src="assets/screenshots/main-workspace.png" alt="Main Workspace" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="bg-black/60 backdrop-blur-sm border border-white/15 px-4 py-2 rounded-xl text-xs font-semibold text-white flex items-center gap-1.5 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3H6" />
+                                </svg>
+                                Zoom View
+                            </span>
                         </div>
-
-                        <!-- Info Area -->
-                        <div class="mt-6 border-t border-white/5 pt-4">
-                            <h3 class="text-lg font-bold text-white">AI Transcription</h3>
-                            <p class="text-gray-400 text-xs mt-1">Real-time local extraction and timeline segmentation view.</p>
-                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Main Workspace</h3>
+                        <p class="text-gray-400 text-xs mt-1">Central translation workspace featuring video playback, timeline synchronization, and take management.</p>
                     </div>
                     <!-- Bottom Gradient strip -->
                     <div class="h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
                 </div>
 
-                <!-- Placeholder Card 2: Translation Suggestions -->
-                <div class="glass-card rounded-2xl border-white/10 overflow-hidden flex flex-col justify-between h-[400px] hover:border-purple-500/30 transition-all duration-300">
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <!-- Top mockup segment: simulates translation split-screen -->
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between border-b border-white/5 pb-3">
-                                <span class="text-xs font-semibold text-purple-400 tracking-wider">AI TRANSLATION ASSISTANT</span>
-                                <span class="text-[10px] bg-purple-500/10 text-purple-300 py-0.5 px-2 rounded-full border border-purple-500/20">Ready</span>
-                            </div>
-                            
-                            <!-- Split view mock -->
-                            <div class="grid grid-cols-2 gap-3 text-[10px] font-mono">
-                                <div class="p-2 bg-slate-950/40 rounded border border-white/5">
-                                    <div class="text-[8px] text-gray-500 mb-1">SOURCE (EN)</div>
-                                    <p class="text-gray-300">This scientific methodology is widely accepted.</p>
-                                </div>
-                                <div class="p-2 bg-purple-950/20 rounded border border-purple-500/15">
-                                    <div class="text-[8px] text-purple-400 mb-1">SUGGESTION (ES)</div>
-                                    <p class="text-white">Esta metodología científica es ampliamente aceptada.</p>
-                                    <div class="mt-2 text-[8px] text-right text-emerald-400">12 CPS • Fits frame</div>
-                                </div>
-                            </div>
-                            
-                            <!-- Prompt guidelines mock -->
-                            <div class="p-2 bg-slate-900/60 rounded border border-white/5 text-[9px] text-gray-400">
-                                <div class="font-bold text-gray-300 mb-1">Enforced Glossary Terms:</div>
-                                <div class="flex gap-1.5 flex-wrap">
-                                    <span class="bg-slate-950 px-1.5 py-0.5 rounded border border-white/10">methodology &rarr; metodología</span>
-                                    <span class="bg-slate-950 px-1.5 py-0.5 rounded border border-white/10">accepted &rarr; aceptada</span>
-                                </div>
-                            </div>
+                <!-- Screenshot Card 2: AI Configuration -->
+                <div class="glass-card rounded-2xl border-white/10 overflow-hidden cursor-pointer group hover:border-purple-500/30 transition-all duration-300 flex flex-col justify-between h-auto" onclick="openLightbox('assets/screenshots/api-configuration.png', 'AI Configuration')">
+                    <div class="relative overflow-hidden aspect-[16/10] bg-slate-950">
+                        <img src="assets/screenshots/api-configuration.png" alt="AI Configuration" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="bg-black/60 backdrop-blur-sm border border-white/15 px-4 py-2 rounded-xl text-xs font-semibold text-white flex items-center gap-1.5 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3H6" />
+                                </svg>
+                                Zoom View
+                            </span>
                         </div>
-
-                        <!-- Info Area -->
-                        <div class="mt-6 border-t border-white/5 pt-4">
-                            <h3 class="text-lg font-bold text-white">Translation Suggestions</h3>
-                            <p class="text-gray-400 text-xs mt-1">Contextual parallel column matching with active glossary triggers.</p>
-                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">AI Configuration</h3>
+                        <p class="text-gray-400 text-xs mt-1">Configure optional Gemini API integration using user-owned credentials.</p>
                     </div>
                     <!-- Bottom Gradient strip -->
                     <div class="h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
                 </div>
 
-                <!-- Placeholder Card 3: Video Synchronization -->
-                <div class="glass-card rounded-2xl border-white/10 overflow-hidden flex flex-col justify-between h-[400px] hover:border-pink-500/30 transition-all duration-300">
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <!-- Top mockup segment: simulates video timeline -->
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between border-b border-white/5 pb-3">
-                                <span class="text-xs font-semibold text-pink-400 tracking-wider">TIMELINE SYNCHRONIZER</span>
-                                <span class="text-[10px] bg-pink-500/10 text-pink-300 py-0.5 px-2 rounded-full border border-pink-500/20">Synced</span>
-                            </div>
-                            
-                            <!-- Simulating media player window -->
-                            <div class="relative h-24 bg-slate-950/60 rounded-lg border border-white/5 flex items-center justify-center">
-                                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/20 flex items-center justify-center text-white cursor-pointer hover:bg-white/10 transition-colors">
-                                    <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z" />
-                                    </svg>
-                                </div>
-                                <div class="absolute bottom-2 right-2 text-[8px] font-mono text-gray-500 bg-black/60 px-1 rounded">
-                                    00:14.30 / 02:45.00
-                                </div>
-                                <div class="absolute bottom-2 left-2 text-[9px] font-sans text-white bg-black/75 py-0.5 px-2 rounded border border-white/15 max-w-[80%] truncate">
-                                    Esta metodología científica es ampliamente aceptada.
-                                </div>
-                            </div>
-                            
-                            <!-- Simulating video track timelines -->
-                            <div class="space-y-1 text-[9px]">
-                                <div class="h-2 bg-slate-900 border border-white/5 rounded relative">
-                                    <div class="absolute top-0 left-[25%] right-[45%] h-full bg-blue-500/20 border-x border-blue-400"></div>
-                                    <div class="absolute top-0 left-[60%] right-[10%] h-full bg-blue-500/20 border-x border-blue-400"></div>
-                                </div>
-                                <div class="h-2 bg-slate-900 border border-white/5 rounded relative">
-                                    <div class="absolute top-0 left-[25%] right-[40%] h-full bg-purple-500/35 border-x border-purple-400"></div>
-                                    <div class="absolute top-0 left-[60%] right-[8%] h-full bg-purple-500/35 border-x border-purple-400"></div>
-                                </div>
-                            </div>
+                <!-- Screenshot Card 3: Export Options -->
+                <div class="glass-card rounded-2xl border-white/10 overflow-hidden cursor-pointer group hover:border-pink-500/30 transition-all duration-300 flex flex-col justify-between h-auto" onclick="openLightbox('assets/screenshots/export-options.png', 'Export Options')">
+                    <div class="relative overflow-hidden aspect-[16/10] bg-slate-950">
+                        <img src="assets/screenshots/export-options.png" alt="Export Options" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="bg-black/60 backdrop-blur-sm border border-white/15 px-4 py-2 rounded-xl text-xs font-semibold text-white flex items-center gap-1.5 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3H6" />
+                                </svg>
+                                Zoom View
+                            </span>
                         </div>
-
-                        <!-- Info Area -->
-                        <div class="mt-6 border-t border-white/5 pt-4">
-                            <h3 class="text-lg font-bold text-white">Video Synchronization</h3>
-                            <p class="text-gray-400 text-xs mt-1">Interactive media synchronization with multi-track alignment lines.</p>
-                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <h3 class="text-lg font-bold text-white group-hover:text-pink-400 transition-colors">Export Options</h3>
+                        <p class="text-gray-400 text-xs mt-1">Export projects, scripts, and glossaries to Word, Excel, CSV, and JSON formats.</p>
                     </div>
                     <!-- Bottom Gradient strip -->
                     <div class="h-1.5 bg-gradient-to-r from-purple-500 to-pink-500"></div>
@@ -1217,6 +1147,21 @@ https://doi.org/10.5281/zenodo.20683887</div>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
         <span class="font-semibold text-xs sm:text-sm">Citation copied to clipboard!</span>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <!-- Close button -->
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none bg-white/5 hover:bg-white/10 p-2.5 rounded-full border border-white/10 shadow-lg">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Modal content -->
+        <div class="max-w-5xl max-h-[85vh] w-full px-4 flex flex-col items-center justify-center gap-4 relative">
+            <img id="lightbox-img" src="" alt="Lightbox View" class="max-w-full max-h-[75vh] rounded-2xl border border-white/10 shadow-2xl object-contain animate-scale-up">
+            <h4 id="lightbox-caption" class="text-lg font-bold text-white text-center mt-2 tracking-wide font-heading"></h4>
+        </div>
     </div>
 
     <!-- Script file -->

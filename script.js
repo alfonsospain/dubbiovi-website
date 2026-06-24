@@ -202,4 +202,53 @@ document.addEventListener('DOMContentLoaded', () => {
             revealObserver.observe(el);
         });
     }
+
+    // 6. Lightbox Modal for Screenshots Gallery
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    window.openLightbox = (src, caption) => {
+        if (!lightbox || !lightboxImg || !lightboxCaption) return;
+        lightboxImg.src = src;
+        lightboxCaption.textContent = caption;
+        
+        // Remove hidden and add flex, then transition opacity
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        
+        // Force reflow to ensure the transition happens
+        void lightbox.offsetWidth;
+        lightbox.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent main page scrolling
+    };
+
+    window.closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.classList.remove('show');
+        
+        // Wait for opacity transition to finish before hiding the container
+        setTimeout(() => {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = ''; // Restore main page scrolling
+        }, 300);
+    };
+
+    // Close lightbox on clicking the background overlay
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                window.closeLightbox();
+            }
+        });
+        
+        // Close on pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                window.closeLightbox();
+            }
+        });
+    }
 });
+

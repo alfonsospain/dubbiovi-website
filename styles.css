@@ -186,3 +186,22 @@ code {
     transform: translateY(0);
 }
 
+/* Lightbox Modal Styles */
+#lightbox.show {
+    opacity: 1;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-scale-up {
+    animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
