@@ -1,0 +1,207 @@
+/* Custom Styles for DubbiOvi Website */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-dark: #030014;
+    --card-bg: rgba(15, 12, 38, 0.45);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --accent-blue: #3b82f6;
+    --accent-violet: #8b5cf6;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+}
+
+body {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.04) 0%, transparent 50%);
+    background-attachment: fixed;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .font-heading {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Glassmorphism utility */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+    transform: translateY(-5px);
+    background: rgba(20, 16, 48, 0.6);
+    border-color: rgba(139, 92, 246, 0.35);
+    box-shadow: 0 15px 40px 0 rgba(139, 92, 246, 0.15), 0 0 1px 1px rgba(139, 92, 246, 0.2) inset;
+}
+
+/* Gradient effects */
+.logo-badge {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.45);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.border-gradient-hover {
+    position: relative;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+}
+
+.border-gradient-hover::after {
+    position: absolute;
+    top: -1px; bottom: -1px;
+    left: -1px; right: -1px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));
+    content: '';
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.border-gradient-hover:hover::after {
+    opacity: 1;
+}
+
+/* Custom button gradients */
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.25);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.15; filter: blur(40px); }
+    50% { opacity: 0.35; filter: blur(60px); }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 8s ease-in-out infinite;
+}
+
+/* Workflow Custom Stepper Styling */
+.workflow-step-active {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%) !important;
+    border-color: transparent !important;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5) !important;
+}
+
+.workflow-card-active {
+    border-color: rgba(139, 92, 246, 0.4) !important;
+    background: rgba(20, 16, 48, 0.7) !important;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1) !important;
+}
+
+/* Citation Box copy feedback overlay */
+.citation-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100;
+}
+
+.citation-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.25);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.45);
+}
+
+/* Code block customization */
+code {
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+}
+
+/* Scroll Reveal animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Lightbox Modal Styles */
+#lightbox.show {
+    opacity: 1;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-scale-up {
+    animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

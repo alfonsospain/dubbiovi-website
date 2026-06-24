@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DubbiOvi - AI-Assisted Audiovisual Translation Environment</title>
+    <meta name="description" content="DubbiOvi: An open-source local-first AI-assisted audiovisual translation environment for teaching, research, and knowledge transfer. Developed at the University of Oviedo.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#030014',
+                        cardbg: 'rgba(15, 12, 38, 0.45)',
+                        brandBlue: '#3b82f6',
+                        brandViolet: '#8b5cf6',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-gray-100 antialiased selection:bg-purple-500 selection:text-white">
+
+    <!-- Glowing Background Orbs -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl -z-10 animate-pulse-glow"></div>
+    <div class="fixed bottom-10 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl -z-10 animate-pulse-glow" style="animation-delay: 2s;"></div>
+
+    <!-- Header / Navigation -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Typographic Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="logo-badge w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white text-lg tracking-tighter transition-transform group-hover:scale-105">
+                        DO
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-gradient">DubbiOvi</span>
+                </a>
+
+                <!-- Updated Navigation Links -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#features" class="text-gray-300 hover:text-white transition-colors duration-200">Features</a>
+                    <a href="#workflow" class="text-gray-300 hover:text-white transition-colors duration-200">Workflow</a>
+                    <a href="#gallery" class="text-gray-300 hover:text-white transition-colors duration-200">Screenshots</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-200">About</a>
+                    <a href="#downloads" class="text-gray-300 hover:text-white transition-colors duration-200">Downloads</a>
+                </nav>
+
+                <!-- Action Button & Hamburger -->
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=o3TqBcWSMUyXipJcPHmc0ETNcwV80DdHn-oyCbK0LrNUNE9URVpNOFpMRjNZQzQ1QllMSlJRRTdXMC4u" target="_blank" rel="noopener noreferrer" class="btn-primary text-white text-sm font-semibold py-2.5 px-5 rounded-lg">
+                        Download / Register
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-4 right-4 p-6 glass-card rounded-2xl flex-col gap-4 text-center border border-white/10 shadow-2xl">
+            <a href="#features" class="text-gray-300 hover:text-white py-2 text-lg font-medium transition-colors">Features</a>
+            <a href="#workflow" class="text-gray-300 hover:text-white py-2 text-lg font-medium transition-colors">Workflow</a>
+            <a href="#gallery" class="text-gray-300 hover:text-white py-2 text-lg font-medium transition-colors">Screenshots</a>
+            <a href="#about" class="text-gray-300 hover:text-white py-2 text-lg font-medium transition-colors">About</a>
+            <a href="#downloads" class="text-gray-300 hover:text-white py-2 text-lg font-medium transition-colors">Downloads</a>
+            <hr class="border-white/10 my-1">
+            <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white py-2 flex items-center justify-center gap-2 font-medium">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                </svg>
+                GitHub Repository
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden">
+        <!-- Interactive geometric grids -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#030014_90%)] z-0"></div>
+        <div class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem] z-0"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+            <!-- Typographic Logo Badge -->
+            <div class="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full glass-card border-white/10 text-sm">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
+                </span>
+                <span class="text-gray-300 font-medium">Developed at the University of Oviedo</span>
+            </div>
+
+            <!-- Big Typographic Header -->
+            <div class="flex flex-col items-center justify-center gap-2 mb-6">
+                <div class="logo-badge w-20 h-20 rounded-2xl flex items-center justify-center font-bold text-white text-4xl tracking-tighter mb-4 animate-float">
+                    DO
+                </div>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight">
+                    Welcome to <span class="text-gradient">DubbiOvi</span>
+                </h1>
+            </div>
+
+            <!-- Tagline -->
+            <p class="text-xl sm:text-2xl font-light text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8 font-heading">
+                "AI-Assisted Audiovisual Translation for Teaching, Research and Knowledge Transfer"
+            </p>
+
+            <!-- Description -->
+            <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg mb-12">
+                An open-source, local-first environment designed to streamline transcription, translation suggestions, terminology alignment, and accurate video synchronization. Built with academic rigor and privacy at its core.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#downloads" class="btn-primary w-full sm:w-auto text-white font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download App
+                </a>
+                <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full sm:w-auto text-white font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                    </svg>
+                    GitHub Repository
+                </a>
+                <a href="#documentation" class="btn-secondary w-full sm:w-auto text-gray-300 font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    Documentation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 relative z-10 border-t border-white/5 bg-slate-950/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                    Powerful Features for <span class="text-gradient">Academic AVT</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-lg">
+                    DubbiOvi integrates modern AI tools and translation helper utilities inside a secure offline workstation.
+                </p>
+            </div>
+
+            <!-- Balanced 3x3 Grid of Features -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AI Transcription -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-600/10 text-blue-400 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">AI Transcription</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Convert speech to text using advanced algorithms. Automatically creates timecodes aligned directly with speak changes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Translation Suggestions -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-600/10 text-purple-400 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.313 1.565-.953 3.051-1.879 4.382m1.879-4.382h-1.879M16.5 12h3" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Translation Suggestions</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Get context-aware suggestions during dubbing or subtitling. Prompts are optimized for readability limits (CPS).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Terminology Glossary -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-600/10 text-indigo-400 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Terminology Glossary</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Import specialized glossaries or dictionaries to enforce translations of domain-specific academic vocabulary.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Video Synchronisation -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-pink-600/10 text-pink-400 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Video Synchronisation</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Synchronize source transcripts and target dubs in frame-accurate real-time. Navigate directly using time-code clicks.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Word Export -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-300 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Word Export</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Generate formatted Microsoft Word templates (.docx) ideal for academic assignment submissions or printing.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Excel Export -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-green-600/10 text-green-400 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 0v4m0-4h4m-4 0H8m2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20h18M3 20a1.5 1.5 0 01-1.5-1.5V17m18 3a1.5 1.5 0 001.5-1.5V17m-18 0h18" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Excel Export</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Export structured, sheet-based translations (.xlsx) to compare audio parameters and timing metrics side-by-side.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Local-First Architecture -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-600/10 text-cyan-400 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Local-First Architecture</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Guarantees maximum speed, offline compatibility, and security. No databases, accounts, or clouds required.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- User Gemini API Keys -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-yellow-600/10 text-yellow-400 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m0 0a2 2 0 01-2 2m2-2a2 2 0 00-2-2m2 2a2 2 0 012 2m0 0a2 2 0 01-2 2m2-2a2 2 0 00-2-2M9 9a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">User Gemini API Keys</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Input your Google Gemini credentials directly. Zero developer middleman fees: you pay Google directly for only what you use.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Offline Project Files -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-600/10 text-emerald-400 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Offline Project Files</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Save, copy, or back up translations as simple local JSON files. Perfect for archiving research datasets and sharing with peers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why DubbiOvi? Section -->
+    <section id="why-dubbiovi" class="py-24 relative z-10 border-t border-white/5 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                    Why <span class="text-gradient">DubbiOvi</span>?
+                </h2>
+                <p class="text-gray-400 mt-4 text-lg">
+                    How DubbiOvi compares directly with commercial, cloud-based audiovisual translation environments.
+                </p>
+            </div>
+
+            <!-- Comparison Table Grid -->
+            <div class="glass-card rounded-2xl border-white/10 overflow-hidden reveal shadow-2xl">
+                <!-- Table Header -->
+                <div class="grid grid-cols-1 md:grid-cols-12 bg-slate-950/80 border-b border-white/10 font-bold text-sm tracking-wider uppercase text-gray-200">
+                    <div class="p-5 md:col-span-4 flex items-center">Feature / Metric</div>
+                    <div class="p-5 md:col-span-4 border-t md:border-t-0 md:border-l border-white/10 flex items-center text-purple-400">
+                        <span class="w-2 h-2 rounded-full bg-purple-500 mr-2 animate-pulse"></span> DubbiOvi (Local-First)
+                    </div>
+                    <div class="p-5 md:col-span-4 border-t md:border-t-0 md:border-l border-white/10 flex items-center text-gray-400">
+                        Cloud Translation Platforms
+                    </div>
+                </div>
+
+                <!-- Row 1: Data Privacy -->
+                <div class="grid grid-cols-1 md:grid-cols-12 border-b border-white/5 hover:bg-white/[0.02] transition-colors text-sm">
+                    <div class="p-5 md:col-span-4 font-semibold text-gray-200">
+                        Data Protection & Privacy
+                    </div>
+                    <div class="p-5 md:col-span-4 md:border-l border-white/5 text-gray-300">
+                        <strong class="text-emerald-400 block mb-1">100% Secure & Offline</strong>
+                        All media assets, scripts, and logs stay locally on your computer. Meets strict university ethics board standards.
+                    </div>
+                    <div class="p-5 md:col-span-4 md:border-l border-white/5 text-gray-400">
+                        <strong class="text-red-400 block mb-1">Data Upload Risks</strong>
+                        Videos and transcripts are sent to third-party databases, risking copyright and institutional confidentiality breaches.
+                    </div>
+                </div>
+
+                <!-- Row 2: Pricing model -->
+                <div class="grid grid-cols-1 md:grid-cols-12 border-b border-white/5 hover:bg-white/[0.02] transition-colors text-sm">
+                    <div class="p-5 md:col-span-4 font-semibold text-gray-200">
+                        Pricing & API Cost Model
+                    </div>
+                    <div class="p-5 md:col-span-4 md:border-l border-white/5 text-gray-300">
+                        <strong class="text-emerald-400 block mb-1">Direct Developer Cost</strong>
+                        Free software. Run AI scripts using your own Gemini API key. Pay only Google's raw developer cost with no markup.
+                    </div>
+                    <div class="p-5 md:col-span-4 md:border-l border-white/5 text-gray-400">
+                        <strong class="text-red-400 block mb-1">Subscription Markups</strong>
+                        Expensive recurring monthly tiers with hidden usage limits and high markups on translation token volumes.
+                    </div>
+                </div>
+
+                <!-- Row 3: Terminology Control -->
+                <div class="grid grid-cols-1 md:grid-cols-12 border-b border-white/5 hover:bg-white/[0.02] transition-colors text-sm">
+                    <div class="p-5 md:col-span-4 font-semibold text-gray-200">
+                        Terminology Alignment
+                    </div>
+                    <div class="p-5 md:col-span-4 md:border-l border-white/5 text-gray-300">
+                        <strong class="text-emerald-400 block mb-1">Local Glossaries</strong>
+                        Import personal CSV dictionaries directly into translation contexts to align and enforce domain-specific words.
+                    </div>
+                    <div class="p-5 md:col-span-4 md:border-l border-white/5 text-gray-400">
+                        <strong class="text-red-400 block mb-1">Rigid LLM Outputs</strong>
+                        Generic translation queries with limited ability to inject custom dictionaries or specialized research vocabularies.
+                    </div>
+                </div>
+
+                <!-- Row 4: Connectivity -->
+                <div class="grid grid-cols-1 md:grid-cols-12 border-b border-white/5 hover:bg-white/[0.02] transition-colors text-sm">
+                    <div class="p-5 md:col-span-4 font-semibold text-gray-200">
+                        Offline Autonomy
+                    </div>
+                    <div class="p-5 md:col-span-4 md:border-l border-white/5 text-gray-300">
+                        <strong class="text-emerald-400 block mb-1">Full Local Control</strong>
+                        Open and refine projects, sync timelines, and export local files without any active internet connection.
+                    </div>
+                    <div class="p-5 md:col-span-4 md:border-l border-white/5 text-gray-400">
+                        <strong class="text-red-400 block mb-1">Constant Connection</strong>
+                        Application fails instantly if server connection drops, hindering mobile field work or remote research.
+                    </div>
+                </div>
+
+                <!-- Row 5: Academic Exports -->
+                <div class="grid grid-cols-1 md:grid-cols-12 hover:bg-white/[0.02] transition-colors text-sm">
+                    <div class="p-5 md:col-span-4 font-semibold text-gray-200">
+                        Academic Research Exports
+                    </div>
+                    <div class="p-5 md:col-span-4 md:border-l border-white/5 text-gray-300">
+                        <strong class="text-emerald-400 block mb-1">Data-Ready Templates</strong>
+                        Direct exporters to Microsoft Word tables, Excel comparison matrices, and statistical CSV columns for R/Python analysis.
+                    </div>
+                    <div class="p-5 md:col-span-4 md:border-l border-white/5 text-gray-400">
+                        <strong class="text-red-400 block mb-1">Subtitle Only</strong>
+                        Typically restricted to standard SRT or WebVTT outputs, requiring manual conversion steps for data studies.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Local-First Section -->
+    <section id="local-first" class="py-24 relative z-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+                <!-- Text contents -->
+                <div class="lg:col-span-5 mb-12 lg:mb-0 reveal">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
+                        Why <span class="text-gradient">Local-First</span>?
+                    </h2>
+                    <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                        DubbiOvi prioritizes your research, data security, and operational autonomy above all else. Modern web services lock your work in online silos; we keep it on your computer.
+                    </p>
+                    <p class="text-gray-400 text-sm mb-8">
+                        Designed specifically to meet the high data protection and privacy standards required by universities, academic journals, and institutional research ethics boards.
+                    </p>
+                    <div class="flex">
+                        <a href="#downloads" class="btn-primary text-white font-semibold py-3 px-6 rounded-lg text-sm">
+                            Get Started Instantly
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual indicators grid -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
+                    <!-- No Firebase / No Accounts -->
+                    <div class="glass-card p-6 rounded-xl border-white/5 flex gap-4">
+                        <div class="text-red-400 mt-1 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-100 mb-1">No Firebase & Accounts</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">No subscriptions, authentication, or user accounts are required. The desktop application runs entirely locally, with registration requested only before downloading.</p>
+                        </div>
+                    </div>
+
+                    <!-- No Cloud Storage -->
+                    <div class="glass-card p-6 rounded-xl border-white/5 flex gap-4">
+                        <div class="text-red-400 mt-1 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-100 mb-1">No Cloud Storage</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Your media assets, subtitles, and sensitive audio waveforms are never uploaded to remote servers.</p>
+                        </div>
+                    </div>
+
+                    <!-- User-Owned Projects -->
+                    <div class="glass-card p-6 rounded-xl border-white/5 flex gap-4">
+                        <div class="text-green-400 mt-1 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-100 mb-1">User-Owned Projects</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Projects are saved directly onto your local drive as JSON, allowing easy archival or peer-to-peer sharing.</p>
+                        </div>
+                    </div>
+
+                    <!-- User-Owned Gemini Keys -->
+                    <div class="glass-card p-6 rounded-xl border-white/5 flex gap-4">
+                        <div class="text-green-400 mt-1 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m0 0a2 2 0 01-2 2m2-2a2 2 0 00-2-2m2 2a2 2 0 012 2m0 0a2 2 0 01-2 2m2-2a2 2 0 00-2-2M9 9a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-100 mb-1">User Gemini API Keys</h4>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Keep full budget control. Run tasks using your personal token. No inflated subscription plans.</p>
+                        </div>
+                    </div>
+
+                    <!-- Privacy-Focused Workflow -->
+                    <div class="glass-card p-6 rounded-xl border-white/5 flex gap-4 sm:col-span-2">
+                        <div class="text-blue-400 mt-1 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-100 mb-1">Privacy-Focused Workflow</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Completely offline-first operation safeguards copyright materials and adheres strictly to proprietary media limitations during the translation process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section id="workflow" class="py-24 relative z-10 border-t border-white/5 bg-slate-950/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                    The DubbiOvi <span class="text-gradient">Translation Workflow</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-lg">
+                    A streamlined, 5-step process tailored for professional audiovisual translators. Click the steps to view details.
+                </p>
+            </div>
+
+            <!-- Workflow Nav Stepper -->
+            <div class="relative mb-12 max-w-4xl mx-auto reveal">
+                <!-- Desktop Stepper Progress Line -->
+                <div class="absolute top-1/2 left-0 right-0 h-1 bg-white/10 -translate-y-1/2 z-0 hidden md:block rounded-full overflow-hidden">
+                    <div class="workflow-progress-bar absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500" style="width: 0%;"></div>
+                </div>
+
+                <!-- Stepper Dots -->
+                <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-0">
+                    
+                    <!-- Step 1 -->
+                    <button class="workflow-step group w-full md:w-auto flex md:flex-col items-center gap-4 md:gap-2 focus:outline-none">
+                        <div class="step-dot w-10 h-10 rounded-full bg-slate-900 border border-white/20 flex items-center justify-center font-bold text-sm text-gray-400 transition-all duration-300">
+                            1
+                        </div>
+                        <span class="step-title text-sm font-semibold text-gray-400 group-hover:text-white transition-colors duration-200">Import Video</span>
+                    </button>
+
+                    <!-- Step 2 -->
+                    <button class="workflow-step group w-full md:w-auto flex md:flex-col items-center gap-4 md:gap-2 focus:outline-none">
+                        <div class="step-dot w-10 h-10 rounded-full bg-slate-900 border border-white/20 flex items-center justify-center font-bold text-sm text-gray-400 transition-all duration-300">
+                            2
+                        </div>
+                        <span class="step-title text-sm font-semibold text-gray-400 group-hover:text-white transition-colors duration-200">Transcribe</span>
+                    </button>
+
+                    <!-- Step 3 -->
+                    <button class="workflow-step group w-full md:w-auto flex md:flex-col items-center gap-4 md:gap-2 focus:outline-none">
+                        <div class="step-dot w-10 h-10 rounded-full bg-slate-900 border border-white/20 flex items-center justify-center font-bold text-sm text-gray-400 transition-all duration-300">
+                            3
+                        </div>
+                        <span class="step-title text-sm font-semibold text-gray-400 group-hover:text-white transition-colors duration-200">Translate</span>
+                    </button>
+
+                    <!-- Step 4 -->
+                    <button class="workflow-step group w-full md:w-auto flex md:flex-col items-center gap-4 md:gap-2 focus:outline-none">
+                        <div class="step-dot w-10 h-10 rounded-full bg-slate-900 border border-white/20 flex items-center justify-center font-bold text-sm text-gray-400 transition-all duration-300">
+                            4
+                        </div>
+                        <span class="step-title text-sm font-semibold text-gray-400 group-hover:text-white transition-colors duration-200">Review</span>
+                    </button>
+
+                    <!-- Step 5 -->
+                    <button class="workflow-step group w-full md:w-auto flex md:flex-col items-center gap-4 md:gap-2 focus:outline-none">
+                        <div class="step-dot w-10 h-10 rounded-full bg-slate-900 border border-white/20 flex items-center justify-center font-bold text-sm text-gray-400 transition-all duration-300">
+                            5
+                        </div>
+                        <span class="step-title text-sm font-semibold text-gray-400 group-hover:text-white transition-colors duration-200">Export</span>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Workflow Detail Cards -->
+            <div class="max-w-3xl mx-auto mt-8 reveal">
+                
+                <!-- Card 1 -->
+                <div class="workflow-card glass-card p-8 rounded-2xl border-white/10 hidden">
+                    <div class="flex flex-col md:flex-row gap-6 items-center">
+                        <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 flex-shrink-0">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-blue-400 font-semibold">Step 1</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-3">Import Video Source</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Load standard video media containers (MP4, MKV, AVI, WebM) directly from your local filesystem. The system automatically processes the files, extracts audio streams offline, and sets up your translation timeline parameters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="workflow-card glass-card p-8 rounded-2xl border-white/10 hidden">
+                    <div class="flex flex-col md:flex-row gap-6 items-center">
+                        <div class="w-16 h-16 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 flex-shrink-0">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-purple-400 font-semibold">Step 2</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-3">AI Audio Transcription</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Deploy Google Gemini or local audio transcription algorithms on your media. DubbiOvi generates an accurate, timestamped source-language script, segmented logically according to speaking shifts and silent pauses.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="workflow-card glass-card p-8 rounded-2xl border-white/10 hidden">
+                    <div class="flex flex-col md:flex-row gap-6 items-center">
+                        <div class="w-16 h-16 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 flex-shrink-0">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.313 1.565-.953 3.051-1.879 4.382m1.879-4.382h-1.879M16.5 12h3" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-indigo-400 font-semibold">Step 3</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-3">Context-Aware Translation</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Get instantaneous target-language translation suggestions. The system cross-references active terminology glossaries and fits suggestions to technical requirements like Characters Per Second (CPS) thresholds.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="workflow-card glass-card p-8 rounded-2xl border-white/10 hidden">
+                    <div class="flex flex-col md:flex-row gap-6 items-center">
+                        <div class="w-16 h-16 rounded-2xl bg-pink-500/10 flex items-center justify-center text-pink-400 flex-shrink-0">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-pink-400 font-semibold">Step 4</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-3">Verify and Synchronize</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Compare the source speech and final translations in parallel columns. Scrub through the video player to verify that timing, speech pacing, dub loops, and layout constraints synchronize seamlessly with the screen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="workflow-card glass-card p-8 rounded-2xl border-white/10 hidden">
+                    <div class="flex flex-col md:flex-row gap-6 items-center">
+                        <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-emerald-400 font-semibold">Step 5</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-3">Multi-Format Export</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Export finalized work into structured spreadsheets (Excel, CSV) for research data processing, standard Word files for scripts and printouts, or SRT/VTT for distribution.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Screenshots Gallery Section -->
+    <section id="gallery" class="py-24 relative z-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                    Application <span class="text-gradient">Workspace Preview</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-lg">
+                    A conceptual look into the DubbiOvi translation workspace layout.
+                </p>
+            </div>
+
+            <!-- Responsive Screenshot Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 reveal">
+                
+                <!-- Screenshot Card 1: Main Workspace -->
+                <div class="glass-card rounded-2xl border-white/10 overflow-hidden cursor-pointer group hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between h-auto" onclick="openLightbox('../assets/screenshots/main-workspace.png', 'Main Workspace')">
+                    <div class="relative overflow-hidden aspect-[16/10] bg-slate-950">
+                        <img src="../assets/screenshots/main-workspace.png" alt="Main Workspace" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="bg-black/60 backdrop-blur-sm border border-white/15 px-4 py-2 rounded-xl text-xs font-semibold text-white flex items-center gap-1.5 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3H6" />
+                                </svg>
+                                Zoom View
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Main Workspace</h3>
+                        <p class="text-gray-400 text-xs mt-1">Central translation workspace featuring video playback, timeline synchronization, and take management.</p>
+                    </div>
+                    <!-- Bottom Gradient strip -->
+                    <div class="h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                </div>
+
+                <!-- Screenshot Card 2: AI Configuration -->
+                <div class="glass-card rounded-2xl border-white/10 overflow-hidden cursor-pointer group hover:border-purple-500/30 transition-all duration-300 flex flex-col justify-between h-auto" onclick="openLightbox('../assets/screenshots/api-configuration.png', 'AI Configuration')">
+                    <div class="relative overflow-hidden aspect-[16/10] bg-slate-950">
+                        <img src="../assets/screenshots/api-configuration.png" alt="AI Configuration" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="bg-black/60 backdrop-blur-sm border border-white/15 px-4 py-2 rounded-xl text-xs font-semibold text-white flex items-center gap-1.5 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3H6" />
+                                </svg>
+                                Zoom View
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">AI Configuration</h3>
+                        <p class="text-gray-400 text-xs mt-1">Configure optional Gemini API integration using user-owned credentials.</p>
+                    </div>
+                    <!-- Bottom Gradient strip -->
+                    <div class="h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+                </div>
+
+                <!-- Screenshot Card 3: Export Options -->
+                <div class="glass-card rounded-2xl border-white/10 overflow-hidden cursor-pointer group hover:border-pink-500/30 transition-all duration-300 flex flex-col justify-between h-auto" onclick="openLightbox('../assets/screenshots/export-options.png', 'Export Options')">
+                    <div class="relative overflow-hidden aspect-[16/10] bg-slate-950">
+                        <img src="../assets/screenshots/export-options.png" alt="Export Options" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="bg-black/60 backdrop-blur-sm border border-white/15 px-4 py-2 rounded-xl text-xs font-semibold text-white flex items-center gap-1.5 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3H6" />
+                                </svg>
+                                Zoom View
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <h3 class="text-lg font-bold text-white group-hover:text-pink-400 transition-colors">Export Options</h3>
+                        <p class="text-gray-400 text-xs mt-1">Export projects, scripts, and glossaries to Word, Excel, CSV, and JSON formats.</p>
+                    </div>
+                    <!-- Bottom Gradient strip -->
+                    <div class="h-1.5 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-24 relative z-10 border-t border-white/5 bg-slate-950/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                    Project <span class="text-gradient">Roadmap</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-lg">
+                    Our planned trajectory for extending DubbiOvi translation capabilities.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto reveal">
+                
+                <!-- Current Version -->
+                <div class="glass-card p-8 rounded-2xl border-white/10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-blue-500/10 text-blue-400 py-1.5 px-4 text-xs font-semibold uppercase tracking-wider rounded-bl-xl border-l border-b border-white/10">
+                        Current Release
+                    </div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-3xl font-extrabold text-blue-400">v1.3.2</span>
+                        <h3 class="text-xl font-bold text-white">Universal Desktop Edition</h3>
+                    </div>
+                    <ul class="space-y-3.5 text-sm text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Local-first audio track extraction and waveform representation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Google Gemini API integration with custom user-owned keys</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Multi-format translation data exporter (MS Word, Excel, CSV)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Characters-per-second (CPS) subtitle reading speed validation</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Planned Releases / Roadmap -->
+                <div class="glass-card p-8 rounded-2xl border-white/10 relative overflow-hidden border-dashed">
+                    <div class="absolute top-0 right-0 bg-purple-500/10 text-purple-400 py-1.5 px-4 text-xs font-semibold uppercase tracking-wider rounded-bl-xl border-l border-b border-white/10">
+                        Future Development
+                    </div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-3xl font-extrabold text-purple-400">Roadmap</span>
+                    </div>
+                    <ul class="space-y-3.5 text-sm text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            <span>Windows installer (.exe)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            <span>Linux build</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            <span>Additional AI providers</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            <span>Advanced dubbing workflow</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            <span>Voice cloning integration</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Academic Citation Section -->
+    <section id="citation" class="py-24 relative z-10 border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                    Academic <span class="text-gradient">Citation</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm sm:text-base">
+                    If you use DubbiOvi in your classroom, research projects, or academic papers, please reference it using the formats below.
+                </p>
+            </div>
+
+            <!-- Citation Box -->
+            <div class="glass-card rounded-2xl border-white/10 overflow-hidden reveal">
+                
+                <!-- Style Selector Tabs & Copy -->
+                <div class="flex items-center justify-between bg-slate-950/60 border-b border-white/10 px-6 py-3">
+                    <div class="flex gap-2">
+                        <button class="citation-tab py-1.5 px-3 rounded-md text-xs font-semibold text-white border border-indigo-500 bg-indigo-950 bg-opacity-30 transition-all focus:outline-none" data-style="apa">
+                            APA 7th Edition
+                        </button>
+                        <button class="citation-tab py-1.5 px-3 rounded-md text-xs font-semibold text-gray-400 border border-transparent hover:text-white transition-all focus:outline-none" data-style="bibtex">
+                            BibTeX Format
+                        </button>
+                    </div>
+                    
+                    <button id="copy-citation-btn" class="inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300 font-semibold focus:outline-none py-1.5 px-3 rounded-md hover:bg-white/5 transition-colors">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                        </svg>
+                        <span class="btn-text">Copy Citation</span>
+                    </button>
+                </div>
+
+                <!-- Citation Text Blocks -->
+                <div class="p-6 sm:p-8 bg-slate-950/20 font-mono text-xs sm:text-sm text-gray-300 leading-relaxed overflow-x-auto">
+                    <!-- APA block -->
+                    <div id="citation-apa" class="citation-block whitespace-pre-line">Rodríguez Fernández-Peña, A. C. (2026).
+DubbiOvi: An open-source AI-assisted audiovisual translation environment (Version 1.3.2) [Computer software].
+University of Oviedo.
+https://doi.org/10.5281/zenodo.20683887</div>
+                    <!-- BibTeX block -->
+                    <div id="citation-bibtex" class="citation-block hidden whitespace-pre">@software{Rodriquez_DubbiOvi_2026,
+  author = {Rodríguez Fernández-Peña, Alfonso C.},
+  title = {{DubbiOvi: An open-source AI-assisted audiovisual translation environment}},
+  version = {1.3.2},
+  institution = {University of Oviedo},
+  year = {2026},
+  doi = {10.5281/zenodo.20683887},
+  url = {https://github.com/alfonsospain/DubbiOvi},
+  license = {MIT}
+}</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative z-10 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center text-left">
+                <!-- Left: Author Profile Card -->
+                <div class="lg:col-span-5 mb-12 lg:mb-0 reveal">
+                    <div class="glass-card p-6 rounded-2xl border-white/10 text-center relative overflow-hidden group shadow-lg">
+                        <!-- Image Container -->
+                        <div class="w-48 h-48 mx-auto rounded-xl overflow-hidden bg-slate-900 border border-white/10 mb-6 flex items-center justify-center relative">
+                            <!-- Image -->
+                            <img src="../assets/alfonso-portrait.jpg" alt="Alfonso C. Rodríguez Fernández-Peña" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <!-- Overlay if image is missing -->
+                            <div class="absolute inset-0 bg-slate-950/20 pointer-events-none"></div>
+                        </div>
+                        <!-- Profile Caption Info -->
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-gray-100 text-lg">Alfonso C. Rodríguez Fernández-Peña</h4>
+                            <p class="text-xs font-semibold text-violet-400 uppercase tracking-wider">University of Oviedo</p>
+                            <p class="text-gray-400 text-xs mt-2">Founder and Lead Developer of DubbiOvi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Text details -->
+                <div class="lg:col-span-7 reveal">
+                    <h2 class="text-3xl font-bold tracking-tight mb-6">
+                        About the <span class="text-gradient">DubbiOvi Project</span>
+                    </h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        DubbiOvi was created and developed by <strong>Alfonso C. Rodríguez Fernández-Peña</strong>.
+                    </p>
+                    <p class="text-gray-400 text-base leading-relaxed mb-8">
+                        The software serves as a modern tool for teaching translation techniques, facilitating translation research datasets, and transferring knowledge from AI audio-processing technologies directly into language classrooms. By enabling local control over proprietary keys and offline execution, the project aims to foster open translation studies globally.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Partners Section -->
+    <section id="partners" class="py-24 relative z-10 border-t border-white/5 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl font-bold tracking-tight">
+                    Academic <span class="text-gradient">Partners</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-lg">
+                    DubbiOvi is developed at the University of Oviedo and supported by the TradDisc Research Group.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto reveal animate-fade-in">
+                <!-- Partner Card 1: University of Oviedo -->
+                <div class="glass-card p-8 rounded-2xl border-white/10 flex flex-col justify-center items-center text-center h-48 hover:border-violet-500/30 transition-all duration-300">
+                    <img src="../assets/logo-uniovi.png" alt="University of Oviedo Logo" class="h-16 w-auto max-w-full object-contain mb-4 filter brightness-90 hover:brightness-100 transition-all">
+                    <h3 class="text-lg font-semibold text-gray-200">University of Oviedo</h3>
+                </div>
+
+                <!-- Partner Card 2: TradDisc Research Group -->
+                <div class="glass-card p-8 rounded-2xl border-white/10 flex flex-col justify-center items-center text-center h-48 hover:border-blue-500/30 transition-all duration-300">
+                    <img src="../assets/logo-traddisc.png" alt="TradDisc Research Group Logo" class="h-16 w-auto max-w-full object-contain mb-4 filter brightness-90 hover:brightness-100 transition-all">
+                    <h3 class="text-lg font-semibold text-gray-200">TradDisc Research Group</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Downloads Section immediately above footer -->
+    <section id="downloads" class="py-24 relative z-10 border-t border-white/5 bg-slate-950/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                    Download <span class="text-gradient">DubbiOvi</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-lg">
+                    Get the latest open-source release.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto reveal">
+                <!-- Card 1: Current Release -->
+                <div class="glass-card p-8 rounded-2xl border-white/10 flex flex-col justify-between hover:border-violet-500/30 transition-all duration-300 shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-xs uppercase tracking-wider text-violet-400 font-semibold bg-violet-500/10 py-1 px-3 rounded-full border border-violet-500/20">Current Release</span>
+                            <span class="text-xs text-gray-500 font-mono">Stable</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-100 mb-2">DubbiOvi v1.3.2</h3>
+                        <p class="text-xs text-violet-400 uppercase tracking-wider mb-4 font-semibold">Universal Desktop Edition</p>
+                        <ul class="space-y-2 text-sm text-gray-400 mb-8">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Universal macOS application</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Works on Apple Silicon and Intel Macs</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>User-supplied Gemini API keys</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Local-first architecture</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Audio transcription and segmentation</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Translation workflow</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Subtitle support</span>
+                            </li>
+                        </ul>
+                        
+                        <!-- Notice above download buttons -->
+                        <div class="mb-6 p-4 rounded-xl bg-violet-950/25 border border-violet-500/20 text-xs text-violet-300 leading-relaxed flex items-start gap-3">
+                            <svg class="w-5 h-5 text-violet-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>We invite users to register before downloading DubbiOvi. Registration helps us understand the educational and research impact of the software and supports future development. Download links for Windows and macOS will be provided after registration.</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <!-- Download / Register Button -->
+                        <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=o3TqBcWSMUyXipJcPHmc0ETNcwV80DdHn-oyCbK0LrNUNE9URVpNOFpMRjNZQzQ1QllMSlJRRTdXMC4u" target="_blank" rel="noopener noreferrer" class="btn-primary text-white text-center py-3 px-4 rounded-xl font-semibold text-xs flex-grow flex items-center justify-center gap-1.5 transition-all">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            Download / Register
+                        </a>
+                        <!-- GitHub Repository Button -->
+                        <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="btn-secondary text-white text-center py-3 px-4 rounded-xl font-semibold text-xs flex-grow flex items-center justify-center gap-1.5 transition-all">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                            </svg>
+                            GitHub Repository
+                        </a>
+                        <!-- DOI Button -->
+                        <a href="https://doi.org/10.5281/zenodo.20683887" target="_blank" rel="noopener noreferrer" class="btn-secondary text-gray-300 text-center py-3 px-4 rounded-xl font-semibold text-xs flex-grow flex items-center justify-center gap-1.5 transition-all">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            DOI
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Release Info -->
+                <div class="glass-card p-8 rounded-2xl border-white/10 flex flex-col justify-between hover:border-blue-500/30 transition-all duration-300 shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-xs uppercase tracking-wider text-blue-400 font-semibold bg-blue-500/10 py-1 px-3 rounded-full border border-blue-500/20">Latest Release</span>
+                            <span class="text-xs text-gray-500 font-mono">Meta</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Release Info</h3>
+                        
+                        <!-- Release Details Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 bg-slate-950/40 rounded-xl border border-white/5 text-center sm:text-left">
+                                <span class="text-xs text-gray-400 block mb-1">Latest Release</span>
+                                <span class="text-sm font-bold text-white font-mono block">v1.3.2 Universal Desktop Edition</span>
+                            </div>
+                            <div class="p-4 bg-slate-950/40 rounded-xl border border-white/5 text-center sm:text-left">
+                                <span class="text-xs text-gray-400 block mb-1">Platform</span>
+                                <span class="text-sm font-bold text-blue-400 font-mono block">macOS Universal<br><span class="text-xs font-semibold text-blue-400/80">(Apple Silicon + Intel)</span></span>
+                            </div>
+                            <div class="p-4 bg-slate-950/40 rounded-xl border border-white/5 text-center sm:text-left">
+                                <span class="text-xs text-gray-400 block mb-1">License</span>
+                                <span class="text-sm font-bold text-purple-400 font-mono block">MIT License</span>
+                            </div>
+                            <div class="p-4 bg-slate-950/40 rounded-xl border border-white/5 text-center sm:text-left">
+                                <span class="text-xs text-gray-400 block mb-1">Status</span>
+                                <span class="text-sm font-bold text-emerald-400 font-mono block">Stable Release</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-xs text-gray-500 text-center">
+                        All project binaries and source revisions are cryptographically verified and signed.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/85 border-t border-white/5 py-12 relative z-10 text-xs sm:text-sm text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <!-- Logo & Copyright -->
+            <div class="flex items-center gap-3">
+                <div class="logo-badge w-7 h-7 rounded-lg flex items-center justify-center font-bold text-white text-xs tracking-tighter">
+                    DO
+                </div>
+                <span>© 2026 Alfonso C. Rodríguez Fernández-Peña. All rights reserved.</span>
+            </div>
+
+            <!-- License & Links -->
+            <div class="flex items-center gap-6">
+                <span>Distributed under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors underline decoration-dotted">MIT License</a>.</span>
+                <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    GitHub Repository
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Citation Copy Toast Alert -->
+    <div id="toast" class="citation-toast glass-card border border-emerald-500/30 bg-emerald-950/20 text-emerald-300 py-3 px-6 rounded-xl shadow-2xl flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span class="font-semibold text-xs sm:text-sm">Citation copied to clipboard!</span>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <!-- Close button -->
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none bg-white/5 hover:bg-white/10 p-2.5 rounded-full border border-white/10 shadow-lg">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Modal content -->
+        <div class="max-w-5xl max-h-[85vh] w-full px-4 flex flex-col items-center justify-center gap-4 relative">
+            <img id="lightbox-img" src="" alt="Lightbox View" class="max-w-full max-h-[75vh] rounded-2xl border border-white/10 shadow-2xl object-contain animate-scale-up">
+            <h4 id="lightbox-caption" class="text-lg font-bold text-white text-center mt-2 tracking-wide font-heading"></h4>
+        </div>
+    </div>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+</html>
