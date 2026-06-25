@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DubbiOvi - AI-Assisted Audiovisual Translation Environment</title>
     <meta name="description" content="DubbiOvi: An open-source local-first AI-assisted audiovisual translation environment for teaching, research, and knowledge transfer. Developed at the University of Oviedo.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,9 +16,9 @@
                 extend: {
                     colors: {
                         darkbg: '#030014',
-                        cardbg: 'rgba(15, 12, 38, 0.45)',
-                        brandBlue: '#3b82f6',
-                        brandViolet: '#8b5cf6',
+                        cardbg: 'rgba(15, 23, 42, 0.45)',
+                        brandBlue: '#009E52',
+                        brandViolet: '#00C853',
                     },
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -29,11 +31,11 @@
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="text-gray-100 antialiased selection:bg-purple-500 selection:text-white">
+<body class="text-gray-100 antialiased selection:bg-[#00C853]/30 selection:text-white">
 
     <!-- Glowing Background Orbs -->
-    <div class="fixed top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl -z-10 animate-pulse-glow"></div>
-    <div class="fixed bottom-10 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl -z-10 animate-pulse-glow" style="animation-delay: 2s;"></div>
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-[#009E52]/10 rounded-full blur-3xl -z-10 animate-pulse-glow"></div>
+    <div class="fixed bottom-10 right-1/4 w-96 h-96 bg-[#00C853]/10 rounded-full blur-3xl -z-10 animate-pulse-glow" style="animation-delay: 2s;"></div>
 
     <!-- Header / Navigation -->
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4">
@@ -105,8 +107,8 @@
             <!-- Typographic Logo Badge -->
             <div class="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full glass-card border-white/10 text-sm">
                 <span class="flex h-2 w-2 relative">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FF88] opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-[#00C853]"></span>
                 </span>
                 <span class="text-gray-300 font-medium">Developed at the University of Oviedo</span>
             </div>
@@ -173,7 +175,7 @@
                 <!-- AI Transcription -->
                 <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-blue-600/10 text-blue-400 flex items-center justify-center mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-[#009E52]/10 text-blue-400 flex items-center justify-center mb-6">
                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                             </svg>
@@ -188,7 +190,7 @@
                 <!-- Translation Suggestions -->
                 <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-purple-600/10 text-purple-400 flex items-center justify-center mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-[#00C853]/10 text-[#00C853] flex items-center justify-center mb-6">
                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.313 1.565-.953 3.051-1.879 4.382m1.879-4.382h-1.879M16.5 12h3" />
                             </svg>
@@ -203,7 +205,7 @@
                 <!-- Terminology Glossary -->
                 <div class="glass-card glass-card-hover p-8 rounded-2xl border-white/10 flex flex-col justify-between reveal">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-indigo-600/10 text-indigo-400 flex items-center justify-center mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-[#009E52]/10 text-[#009E52] flex items-center justify-center mb-6">
                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                             </svg>
@@ -326,8 +328,8 @@
                 <!-- Table Header -->
                 <div class="grid grid-cols-1 md:grid-cols-12 bg-slate-950/80 border-b border-white/10 font-bold text-sm tracking-wider uppercase text-gray-200">
                     <div class="p-5 md:col-span-4 flex items-center">Feature / Metric</div>
-                    <div class="p-5 md:col-span-4 border-t md:border-t-0 md:border-l border-white/10 flex items-center text-purple-400">
-                        <span class="w-2 h-2 rounded-full bg-purple-500 mr-2 animate-pulse"></span> DubbiOvi (Local-First)
+                    <div class="p-5 md:col-span-4 border-t md:border-t-0 md:border-l border-white/10 flex items-center text-[#00C853]">
+                        <span class="w-2 h-2 rounded-full bg-[#00C853] mr-2 animate-pulse"></span> DubbiOvi (Local-First)
                     </div>
                     <div class="p-5 md:col-span-4 border-t md:border-t-0 md:border-l border-white/10 flex items-center text-gray-400">
                         Cloud Translation Platforms
@@ -522,7 +524,7 @@
             <div class="relative mb-12 max-w-4xl mx-auto reveal">
                 <!-- Desktop Stepper Progress Line -->
                 <div class="absolute top-1/2 left-0 right-0 h-1 bg-white/10 -translate-y-1/2 z-0 hidden md:block rounded-full overflow-hidden">
-                    <div class="workflow-progress-bar absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500" style="width: 0%;"></div>
+                    <div class="workflow-progress-bar absolute top-0 left-0 h-full bg-gradient-to-r from-[#009E52] to-[#00C853] transition-all duration-500" style="width: 0%;"></div>
                 </div>
 
                 <!-- Stepper Dots -->
@@ -595,13 +597,13 @@
                 <!-- Card 2 -->
                 <div class="workflow-card glass-card p-8 rounded-2xl border-white/10 hidden">
                     <div class="flex flex-col md:flex-row gap-6 items-center">
-                        <div class="w-16 h-16 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 flex-shrink-0">
+                        <div class="w-16 h-16 rounded-2xl bg-[#00C853]/10 flex items-center justify-center text-[#00C853] flex-shrink-0">
                             <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                             </svg>
                         </div>
                         <div>
-                            <span class="text-xs uppercase tracking-wider text-purple-400 font-semibold">Step 2</span>
+                            <span class="text-xs uppercase tracking-wider text-[#00C853] font-semibold">Step 2</span>
                             <h3 class="text-2xl font-bold text-white mt-1 mb-3">AI Audio Transcription</h3>
                             <p class="text-gray-400 leading-relaxed">
                                 Deploy Google Gemini or local audio transcription algorithms on your media. DubbiOvi generates an accurate, timestamped source-language script, segmented logically according to speaking shifts and silent pauses.
@@ -613,13 +615,13 @@
                 <!-- Card 3 -->
                 <div class="workflow-card glass-card p-8 rounded-2xl border-white/10 hidden">
                     <div class="flex flex-col md:flex-row gap-6 items-center">
-                        <div class="w-16 h-16 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 flex-shrink-0">
+                        <div class="w-16 h-16 rounded-2xl bg-[#009E52]/10 flex items-center justify-center text-[#009E52] flex-shrink-0">
                             <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.313 1.565-.953 3.051-1.879 4.382m1.879-4.382h-1.879M16.5 12h3" />
                             </svg>
                         </div>
                         <div>
-                            <span class="text-xs uppercase tracking-wider text-indigo-400 font-semibold">Step 3</span>
+                            <span class="text-xs uppercase tracking-wider text-[#009E52] font-semibold">Step 3</span>
                             <h3 class="text-2xl font-bold text-white mt-1 mb-3">Context-Aware Translation</h3>
                             <p class="text-gray-400 leading-relaxed">
                                 Get instantaneous target-language translation suggestions. The system cross-references active terminology glossaries and fits suggestions to technical requirements like Characters Per Second (CPS) thresholds.
@@ -703,11 +705,11 @@
                         <p class="text-gray-400 text-xs mt-1">Central translation workspace featuring video playback, timeline synchronization, and take management.</p>
                     </div>
                     <!-- Bottom Gradient strip -->
-                    <div class="h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-[#009E52] to-[#00C853]"></div>
                 </div>
 
                 <!-- Screenshot Card 2: AI Configuration -->
-                <div class="glass-card rounded-2xl border-white/10 overflow-hidden cursor-pointer group hover:border-purple-500/30 transition-all duration-300 flex flex-col justify-between h-auto" onclick="openLightbox('../assets/screenshots/api-configuration.png', 'AI Configuration')">
+                <div class="glass-card rounded-2xl border-white/10 overflow-hidden cursor-pointer group hover:border-[#00C853]/30 transition-all duration-300 flex flex-col justify-between h-auto" onclick="openLightbox('../assets/screenshots/api-configuration.png', 'AI Configuration')">
                     <div class="relative overflow-hidden aspect-[16/10] bg-slate-950">
                         <img src="../assets/screenshots/api-configuration.png" alt="AI Configuration" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -720,11 +722,11 @@
                         </div>
                     </div>
                     <div class="p-6 border-t border-white/5 bg-slate-950/20">
-                        <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">AI Configuration</h3>
+                        <h3 class="text-lg font-bold text-white group-hover:text-[#00C853] transition-colors">AI Configuration</h3>
                         <p class="text-gray-400 text-xs mt-1">Configure optional Gemini API integration using user-owned credentials.</p>
                     </div>
                     <!-- Bottom Gradient strip -->
-                    <div class="h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-[#009E52] to-[#00C853]"></div>
                 </div>
 
                 <!-- Screenshot Card 3: Export Options -->
@@ -745,7 +747,7 @@
                         <p class="text-gray-400 text-xs mt-1">Export projects, scripts, and glossaries to Word, Excel, CSV, and JSON formats.</p>
                     </div>
                     <!-- Bottom Gradient strip -->
-                    <div class="h-1.5 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-[#00C853] to-[#00FF88]"></div>
                 </div>
 
             </div>
@@ -807,39 +809,39 @@
 
                 <!-- Planned Releases / Roadmap -->
                 <div class="glass-card p-8 rounded-2xl border-white/10 relative overflow-hidden border-dashed">
-                    <div class="absolute top-0 right-0 bg-purple-500/10 text-purple-400 py-1.5 px-4 text-xs font-semibold uppercase tracking-wider rounded-bl-xl border-l border-b border-white/10">
+                    <div class="absolute top-0 right-0 bg-[#00C853]/10 text-[#00C853] py-1.5 px-4 text-xs font-semibold uppercase tracking-wider rounded-bl-xl border-l border-b border-white/10">
                         Future Development
                     </div>
                     <div class="flex items-center gap-3 mb-6">
-                        <span class="text-3xl font-extrabold text-purple-400">Roadmap</span>
+                        <span class="text-3xl font-extrabold text-[#00C853]">Roadmap</span>
                     </div>
                     <ul class="space-y-3.5 text-sm text-gray-300">
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 text-[#00C853] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
                             <span>Windows installer (.exe)</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 text-[#00C853] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
                             <span>Linux build</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 text-[#00C853] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
                             <span>Additional AI providers</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 text-[#00C853] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
                             <span>Advanced dubbing workflow</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 text-[#00C853] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
                             <span>Voice cloning integration</span>
@@ -871,7 +873,7 @@
                 <!-- Style Selector Tabs & Copy -->
                 <div class="flex items-center justify-between bg-slate-950/60 border-b border-white/10 px-6 py-3">
                     <div class="flex gap-2">
-                        <button class="citation-tab py-1.5 px-3 rounded-md text-xs font-semibold text-white border border-indigo-500 bg-indigo-950 bg-opacity-30 transition-all focus:outline-none" data-style="apa">
+                        <button class="citation-tab py-1.5 px-3 rounded-md text-xs font-semibold text-white border border-[#00C853] bg-emerald-950 bg-opacity-30 transition-all focus:outline-none" data-style="apa">
                             APA 7th Edition
                         </button>
                         <button class="citation-tab py-1.5 px-3 rounded-md text-xs font-semibold text-gray-400 border border-transparent hover:text-white transition-all focus:outline-none" data-style="bibtex">
@@ -879,7 +881,7 @@
                         </button>
                     </div>
                     
-                    <button id="copy-citation-btn" class="inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300 font-semibold focus:outline-none py-1.5 px-3 rounded-md hover:bg-white/5 transition-colors">
+                    <button id="copy-citation-btn" class="inline-flex items-center gap-1.5 text-xs text-[#009E52] hover:text-[#00FF88] font-semibold focus:outline-none py-1.5 px-3 rounded-md hover:bg-white/5 transition-colors">
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                         </svg>
@@ -928,7 +930,7 @@ https://doi.org/10.5281/zenodo.20683887</div>
                         <!-- Profile Caption Info -->
                         <div class="space-y-1">
                             <h4 class="font-bold text-gray-100 text-lg">Alfonso C. Rodríguez Fernández-Peña</h4>
-                            <p class="text-xs font-semibold text-violet-400 uppercase tracking-wider">University of Oviedo</p>
+                            <p class="text-xs font-semibold text-[#00C853] uppercase tracking-wider">University of Oviedo</p>
                             <p class="text-gray-400 text-xs mt-2">Founder and Lead Developer of DubbiOvi</p>
                         </div>
                     </div>
@@ -964,7 +966,7 @@ https://doi.org/10.5281/zenodo.20683887</div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto reveal animate-fade-in">
                 <!-- Partner Card 1: University of Oviedo -->
-                <div class="glass-card p-8 rounded-2xl border-white/10 flex flex-col justify-center items-center text-center h-48 hover:border-violet-500/30 transition-all duration-300">
+                <div class="glass-card p-8 rounded-2xl border-white/10 flex flex-col justify-center items-center text-center h-48 hover:border-[#00C853]/30 transition-all duration-300">
                     <img src="../assets/logo-uniovi.png" alt="University of Oviedo Logo" class="h-16 w-auto max-w-full object-contain mb-4 filter brightness-90 hover:brightness-100 transition-all">
                     <h3 class="text-lg font-semibold text-gray-200">University of Oviedo</h3>
                 </div>
@@ -993,53 +995,53 @@ https://doi.org/10.5281/zenodo.20683887</div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto reveal">
                 <!-- Card 1: Current Release -->
-                <div class="glass-card p-8 rounded-2xl border-white/10 flex flex-col justify-between hover:border-violet-500/30 transition-all duration-300 shadow-lg">
+                <div class="glass-card p-8 rounded-2xl border-white/10 flex flex-col justify-between hover:border-[#00C853]/30 transition-all duration-300 shadow-lg">
                     <div>
                         <div class="flex items-center justify-between mb-6">
-                            <span class="text-xs uppercase tracking-wider text-violet-400 font-semibold bg-violet-500/10 py-1 px-3 rounded-full border border-violet-500/20">Current Release</span>
+                            <span class="text-xs uppercase tracking-wider text-[#00C853] font-semibold bg-[#00C853]/10 py-1 px-3 rounded-full border border-[#00C853]/20">Current Release</span>
                             <span class="text-xs text-gray-500 font-mono">Stable</span>
                         </div>
                         <h3 class="text-xl font-bold text-gray-100 mb-2">DubbiOvi v1.3.2</h3>
-                        <p class="text-xs text-violet-400 uppercase tracking-wider mb-4 font-semibold">Universal Desktop Edition</p>
+                        <p class="text-xs text-[#00C853] uppercase tracking-wider mb-4 font-semibold">Universal Desktop Edition</p>
                         <ul class="space-y-2 text-sm text-gray-400 mb-8">
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="w-4 h-4 text-[#00C853] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>Universal macOS application</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="w-4 h-4 text-[#00C853] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>Works on Apple Silicon and Intel Macs</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="w-4 h-4 text-[#00C853] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>User-supplied Gemini API keys</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="w-4 h-4 text-[#00C853] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>Local-first architecture</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="w-4 h-4 text-[#00C853] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>Audio transcription and segmentation</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="w-4 h-4 text-[#00C853] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>Translation workflow</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="w-4 h-4 text-[#00C853] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>Subtitle support</span>
@@ -1047,8 +1049,8 @@ https://doi.org/10.5281/zenodo.20683887</div>
                         </ul>
                         
                         <!-- Notice above download buttons -->
-                        <div class="mb-6 p-4 rounded-xl bg-violet-950/25 border border-violet-500/20 text-xs text-violet-300 leading-relaxed flex items-start gap-3">
-                            <svg class="w-5 h-5 text-violet-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div class="mb-6 p-4 rounded-xl bg-emerald-950/25 border border-[#00C853]/20 text-xs text-emerald-300 leading-relaxed flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#00C853] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <span>We invite users to register before downloading DubbiOvi. Registration helps us understand the educational and research impact of the software and supports future development. Download links for Windows and macOS will be provided after registration.</span>
@@ -1101,7 +1103,7 @@ https://doi.org/10.5281/zenodo.20683887</div>
                             </div>
                             <div class="p-4 bg-slate-950/40 rounded-xl border border-white/5 text-center sm:text-left">
                                 <span class="text-xs text-gray-400 block mb-1">License</span>
-                                <span class="text-sm font-bold text-purple-400 font-mono block">MIT License</span>
+                                <span class="text-sm font-bold text-[#00C853] font-mono block">MIT License</span>
                             </div>
                             <div class="p-4 bg-slate-950/40 rounded-xl border border-white/5 text-center sm:text-left">
                                 <span class="text-xs text-gray-400 block mb-1">Status</span>
@@ -1168,3 +1170,4 @@ https://doi.org/10.5281/zenodo.20683887</div>
     <script src="script.js"></script>
 </body>
 </html>
+
