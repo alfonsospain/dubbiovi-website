@@ -1,6 +1,6 @@
 # DubbiOvi Public Website
 
-This repository contains the complete public marketing and documentation website for **DubbiOvi**, an open-source AI-assisted audiovisual translation environment developed at the University of Oviedo by Alfonso C. Rodríguez Fernández-Peña.
+This repository contains the complete public marketing and documentation website for **DubbiOvi**, an open-source AI-assisted audiovisual translation environment developed at the University of Oviedo by Dr Alfonso C. Rodríguez Fernández-Peña.
 
 The website is designed with a premium, responsive dark-mode aesthetic featuring blue/violet accents, interactive workflow steps, academic citations, downloads, and a comparison matrix against traditional cloud platforms.
 
