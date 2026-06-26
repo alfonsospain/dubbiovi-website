@@ -1,4 +1,4 @@
-/* Custom Styles for DubbiOvi Website */
+﻿/* Custom Styles for DubbiOvi Website */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
@@ -6,8 +6,8 @@
     --bg-dark: #030014;
     --card-bg: rgba(15, 12, 38, 0.45);
     --border-color: rgba(255, 255, 255, 0.08);
-    --accent-blue: #3b82f6;
-    --accent-violet: #8b5cf6;
+    --accent-blue: #009E52;
+    --accent-violet: #00C853;
     --text-primary: #f3f4f6;
     --text-secondary: #9ca3af;
 }
@@ -15,9 +15,9 @@
 body {
     background-color: var(--bg-dark);
     background-image: 
-        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.04) 0%, transparent 50%);
+        radial-gradient(circle at 10% 20%, rgba(0, 158, 82, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 200, 83, 0.03) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.02) 0%, transparent 50%);
     background-attachment: fixed;
     font-family: 'Inter', sans-serif;
     color: var(--text-primary);
@@ -43,19 +43,19 @@ h1, h2, h3, .font-heading {
 
 .glass-card-hover:hover {
     transform: translateY(-5px);
-    background: rgba(20, 16, 48, 0.6);
-    border-color: rgba(139, 92, 246, 0.35);
-    box-shadow: 0 15px 40px 0 rgba(139, 92, 246, 0.15), 0 0 1px 1px rgba(139, 92, 246, 0.2) inset;
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(0, 200, 83, 0.35);
+    box-shadow: 0 15px 40px 0 rgba(0, 200, 83, 0.15), 0 0 1px 1px rgba(0, 200, 83, 0.2) inset;
 }
 
 /* Gradient effects */
 .logo-badge {
     background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.45);
+    box-shadow: 0 0 20px rgba(0, 200, 83, 0.45);
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #c084fc 100%);
+    background: linear-gradient(135deg, #009E52 0%, #00C853 70%, #00FF88 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -86,11 +86,11 @@ h1, h2, h3, .font-heading {
 .btn-primary {
     background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.12);
 }
 
 .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+    box-shadow: 0 6px 20px rgba(0, 200, 83, 0.20);
     transform: translateY(-2px);
 }
 
@@ -129,13 +129,13 @@ h1, h2, h3, .font-heading {
 .workflow-step-active {
     background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%) !important;
     border-color: transparent !important;
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5) !important;
+    box-shadow: 0 0 15px rgba(0, 200, 83, 0.5) !important;
 }
 
 .workflow-card-active {
-    border-color: rgba(139, 92, 246, 0.4) !important;
-    background: rgba(20, 16, 48, 0.7) !important;
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1) !important;
+    border-color: rgba(0, 200, 83, 0.4) !important;
+    background: rgba(15, 23, 42, 0.7) !important;
+    box-shadow: 0 10px 30px rgba(0, 200, 83, 0.1) !important;
 }
 
 /* Citation Box copy feedback overlay */
@@ -163,11 +163,11 @@ h1, h2, h3, .font-heading {
     background: var(--bg-dark);
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(139, 92, 246, 0.25);
+    background: rgba(0, 200, 83, 0.25);
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 92, 246, 0.45);
+    background: rgba(0, 200, 83, 0.45);
 }
 
 /* Code block customization */
@@ -205,3 +205,5 @@ code {
 .animate-scale-up {
     animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+
