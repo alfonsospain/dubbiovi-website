@@ -529,11 +529,21 @@
 
             // E. Download Redirect execution
             function executeDownload(platform) {
-                if (platform === 'windows') {
-                    window.location.href = WINDOWS_DOWNLOAD_URL;
-                } else if (platform === 'macos') {
-                    window.location.href = MAC_DOWNLOAD_URL;
-                }
+                const downloadUrl = (platform === 'windows') ? WINDOWS_DOWNLOAD_URL : MAC_DOWNLOAD_URL;
+                
+                // Create a temporary anchor element to trigger the download robustly
+                const downloadLink = document.createElement('a');
+                downloadLink.href = downloadUrl;
+                downloadLink.setAttribute('download', '');
+                downloadLink.style.display = 'none';
+                
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                
+                // Clean up the DOM after trigger
+                setTimeout(() => {
+                    document.body.removeChild(downloadLink);
+                }, 100);
             }
         });
     </script>
