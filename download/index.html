@@ -530,31 +530,29 @@
 
             // C. API Communication function
             function submitPayloadToApi(payload) {
-                setSubmitButtonLoading(true);
-                clearFormError();
+                // Add hidden inputs for softwareVersion and timestamp so they are submitted natively
+                let versionInput = form.querySelector('input[name="softwareVersion"]');
+                if (!versionInput) {
+                    versionInput = document.createElement('input');
+                    versionInput.type = 'hidden';
+                    versionInput.name = 'softwareVersion';
+                    form.appendChild(versionInput);
+                }
+                versionInput.value = payload.softwareVersion;
 
-                // POST Request to Google Apps Script Web App
-                // Using 'no-cors' mode as standard for cross-origin Apps Script submissions.
-                // Opaque responses resolve successfully.
-                fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                })
-                .then(() => {
-                    // Success callback
-                    setSubmitButtonLoading(false);
-                    handleSubmissionSuccess(payload.platform);
-                })
-                .catch(error => {
-                    // Error callback (prevent download, display error)
-                    console.error("API Submission Error:", error);
-                    setSubmitButtonLoading(false);
-                    showGeneralFormError("An error occurred while submitting your registration. Please try again later.");
-                });
+                let timestampInput = form.querySelector('input[name="timestamp"]');
+                if (!timestampInput) {
+                    timestampInput = document.createElement('input');
+                    timestampInput.type = 'hidden';
+                    timestampInput.name = 'timestamp';
+                    form.appendChild(timestampInput);
+                }
+                timestampInput.value = payload.timestamp;
+
+                // Configure form action and method to post directly to Google Apps Script Web App
+                form.action = GOOGLE_SCRIPT_URL;
+                form.method = "POST";
+                form.submit();
             }
 
             // D. Download Flow Handler
