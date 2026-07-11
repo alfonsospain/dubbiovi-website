@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MFB7X6XW');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DubbiOvi - Data Management Plan</title>
+    <meta name="description" content="Official Data Management Plan for the DubbiOvi academic dubbing translation platform.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00C853',
+                        primaryHover: '#009E52',
+                        lavenderLight: '#E8FBF0',
+                        bgBase: '#FFFFFF',
+                        bgSection: '#FAFAFC',
+                        textPrimary: '#111827',
+                        textSecondary: '#6B7280',
+                        borderColor: '#E5E7EB',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="bg-white text-[#111827] antialiased selection:bg-[#00C853]/10 selection:text-[#00C853]">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFB7X6XW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header / Navigation -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Typographic Logo -->
+                <a href="../" class="flex items-center gap-3 group">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white text-sm tracking-tighter" style="background: linear-gradient(135deg, #009E52 0%, #00C853 100%); box-shadow: 0 0 10px rgba(0, 200, 83, 0.3);">
+                        DO
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-[#111827]">DubbiOvi</span>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="../#features" class="text-[#6B7280] hover:text-[#111827] transition-colors duration-200">Features</a>
+                    <a href="../#workflow" class="text-[#6B7280] hover:text-[#111827] transition-colors duration-200">Workflow</a>
+                    <a href="../#gallery" class="text-[#6B7280] hover:text-[#111827] transition-colors duration-200">Preview</a>
+                    <a href="../#about" class="text-[#6B7280] hover:text-[#111827] transition-colors duration-200">About</a>
+                    <a href="../usermanual/" class="text-[#6B7280] hover:text-[#111827] transition-colors duration-200">User Manual</a>
+                    
+                    <!-- Social Media Links -->
+                    <div class="flex items-center space-x-4 border-l border-gray-200 pl-4 -ml-2">
+                        <a href="https://www.linkedin.com/company/dubbiovi" target="_blank" rel="noopener noreferrer" class="text-[#6B7280] hover:text-[#00C853] transition-all duration-200 hover:scale-110" aria-label="LinkedIn">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.67c0-.25.02-.5.1-.68a1.14 1.14 0 0 1 1-.77c.76 0 1 .58 1 1.42v4.7h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5V18.5h3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="text-[#6B7280] hover:text-[#00C853] transition-all duration-200 hover:scale-110" aria-label="GitHub">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@DubbiOvi" target="_blank" rel="noopener noreferrer" class="text-[#6B7280] hover:text-[#00C853] transition-all duration-200 hover:scale-110" aria-label="YouTube">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/DubbiOvi" target="_blank" rel="noopener noreferrer" class="text-[#6B7280] hover:text-[#00C853] transition-all duration-200 hover:scale-110" aria-label="X">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </nav>
+
+                <!-- Top Right CTA -->
+                <div class="flex items-center gap-4">
+                    <a href="../download/" class="btn-primary text-sm font-semibold py-2 px-4 rounded-lg inline-flex items-center justify-center">
+                        Download
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-[#6B7280] hover:text-[#111827] hover:bg-gray-100 transition-all focus:outline-none" aria-label="Toggle Menu">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-4 right-4 p-6 bg-white border border-gray-200 rounded-2xl flex-col gap-4 text-center shadow-xl z-50">
+            <a href="../#features" class="text-base font-semibold text-[#6B7280] hover:text-[#111827] transition-colors duration-200 py-1">Features</a>
+            <a href="../#workflow" class="text-base font-semibold text-[#6B7280] hover:text-[#111827] transition-colors duration-200 py-1">Workflow</a>
+            <a href="../#gallery" class="text-base font-semibold text-[#6B7280] hover:text-[#111827] transition-colors duration-200 py-1">Preview</a>
+            <a href="../#about" class="text-base font-semibold text-[#6B7280] hover:text-[#111827] transition-colors duration-200 py-1">About</a>
+            <a href="../usermanual/" class="text-base font-semibold text-[#6B7280] hover:text-[#111827] transition-colors duration-200 py-1">User Manual</a>
+            
+            <div class="h-px bg-gray-100 my-2"></div>
+            
+            <!-- Mobile Social Links -->
+            <div class="flex items-center justify-center space-x-6 py-2">
+                <a href="https://www.linkedin.com/company/dubbiovi" target="_blank" rel="noopener noreferrer" class="text-[#6B7280] hover:text-[#00C853] transition-all duration-200 hover:scale-110" aria-label="LinkedIn">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.67c0-.25.02-.5.1-.68a1.14 1.14 0 0 1 1-.77c.76 0 1 .58 1 1.42v4.7h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5V18.5h3z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="text-[#6B7280] hover:text-[#00C853] transition-all duration-200 hover:scale-110" aria-label="GitHub">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@DubbiOvi" target="_blank" rel="noopener noreferrer" class="text-[#6B7280] hover:text-[#00C853] transition-all duration-200 hover:scale-110" aria-label="YouTube">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="https://x.com/DubbiOvi" target="_blank" rel="noopener noreferrer" class="text-[#6B7280] hover:text-[#00C853] transition-all duration-200 hover:scale-110" aria-label="X">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="relative min-h-screen pt-28 pb-16 overflow-hidden bg-white" style="background: radial-gradient(circle at 50% 50%, rgba(0, 200, 83, 0.02) 0%, rgba(0, 200, 83, 0) 70%), #FFFFFF;">
+        <!-- Subtle background pattern -->
+        <div class="absolute inset-0 bg-[radial-gradient(#00c85308_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <!-- Academic Badge -->
+                <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-[#E8FBF0] text-[#009E52] text-xs font-semibold tracking-wide uppercase border border-[#00C853]/15">
+                    Documentation & Resources
+                </div>
+                
+                <!-- Main Heading -->
+                <h1 class="font-extrabold tracking-tight text-[#111827] mb-2 text-4xl sm:text-5xl lg:text-6xl font-heading">
+                    Data Management Plan (DMP)
+                </h1>
+                
+                <!-- Last Updated -->
+                <p class="text-sm text-[#6B7280] mb-8 font-medium">
+                    Last updated: July 2026
+                </p>
+            </div>
+
+            <!-- Content Card -->
+            <div class="max-w-4xl mx-auto">
+                <div class="premium-card rounded-2xl p-8 sm:p-12 bg-white border border-[#E5E7EB] shadow-lg w-full text-left">
+                    <!-- Metadata Header -->
+                    <div class="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-100 text-sm space-y-2">
+                        <div><span class="font-semibold text-[#111827]">Project:</span> <span class="text-[#6B7280]">DubbiOvi – Open-Access AI-Assisted Audiovisual Translation Platform</span></div>
+                        <div><span class="font-semibold text-[#111827]">Institution:</span> <span class="text-[#6B7280]">University of Oviedo (Spain)</span></div>
+                        <div><span class="font-semibold text-[#111827]">Project Lead:</span> <span class="text-[#6B7280]">Alfonso C. Rodríguez Fernández-Peña</span></div>
+                        <div><span class="font-semibold text-[#111827]">Version:</span> <span class="text-[#6B7280]">1.3.7</span></div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">1. Purpose</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                This Data Management Plan (DMP) describes how data are collected, managed, stored, protected, shared, and preserved throughout the lifecycle of the DubbiOvi project.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed">
+                                DubbiOvi has been designed following the principles of Open Science, transparency, privacy by design, and local-first computing.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">2. Types of Data</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                The project manages two distinct categories of data.
+                            </p>
+                            
+                            <h3 class="text-lg font-bold text-[#111827] mt-6 mb-2 font-heading">2.1 Administrative Data</h3>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                Users who voluntarily register to download DubbiOvi may provide:
+                            </p>
+                            <ul class="list-disc pl-6 space-y-2 text-[#6B7280] text-base">
+                                <li>First name</li>
+                                <li>Last name</li>
+                                <li>Email address</li>
+                                <li>Institution</li>
+                                <li>Country</li>
+                                <li>Operating system</li>
+                                <li>Software version</li>
+                                <li>Registration timestamp</li>
+                            </ul>
+                            <p class="text-base text-[#6B7280] leading-relaxed mt-4">
+                                These data are used exclusively for project administration and dissemination.
+                            </p>
+
+                            <h3 class="text-lg font-bold text-[#111827] mt-6 mb-2 font-heading">2.2 Software Data</h3>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                DubbiOvi processes audiovisual translation materials locally on the user's computer.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                These may include:
+                            </p>
+                            <ul class="list-disc pl-6 space-y-2 text-[#6B7280] text-base">
+                                <li>audiovisual files</li>
+                                <li>subtitle files</li>
+                                <li>translation memories</li>
+                                <li>scripts</li>
+                                <li>translated text</li>
+                                <li>timing information</li>
+                                <li>exported projects</li>
+                            </ul>
+                            <p class="text-base text-[#6B7280] leading-relaxed mt-4">
+                                These files remain under the control of the user.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed">
+                                The project does not collect, upload, monitor, or archive these materials.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">3. Data Collection Principles</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                DubbiOvi follows the principle of data minimisation.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                Only information strictly necessary for project management and communication is collected.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed">
+                                No behavioural analytics, telemetry, tracking technologies, or advertising identifiers are implemented.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">4. Storage</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                Administrative data are stored using secure Google Workspace services managed by the project administrator.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed">
+                                Research materials created by users remain on their own devices unless they explicitly choose another storage solution.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">5. Security</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                The project applies reasonable technical and organisational safeguards, including:
+                            </p>
+                            <ul class="list-disc pl-6 space-y-2 text-[#6B7280] text-base">
+                                <li>restricted administrative access;</li>
+                                <li>password-protected institutional accounts;</li>
+                                <li>encrypted communications (HTTPS);</li>
+                                <li>regular software updates;</li>
+                                <li>secure version control through GitHub.</li>
+                            </ul>
+                            <p class="text-base text-[#6B7280] leading-relaxed mt-4">
+                                Users remain responsible for securing the files stored on their own systems.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">6. External AI Services</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                Certain optional functions may communicate with third-party AI providers selected by the user.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                DubbiOvi acts only as an interface for these requests.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                The project does not retain prompts, translated content, or generated outputs exchanged with external AI services.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed">
+                                Users should review the privacy policies of the AI providers they choose to use.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">7. Data Sharing</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                Personal information is never sold or disclosed to third parties.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                Aggregated and anonymised statistics may be reported in:
+                            </p>
+                            <ul class="list-disc pl-6 space-y-2 text-[#6B7280] text-base">
+                                <li>scientific publications;</li>
+                                <li>conference presentations;</li>
+                                <li>institutional reports;</li>
+                                <li>funding applications;</li>
+                                <li>impact and knowledge-transfer assessments.</li>
+                            </ul>
+                            <p class="text-base text-[#6B7280] leading-relaxed mt-4">
+                                No individual user will be identifiable in these reports.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">8. Data Retention</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                Administrative information is retained only for as long as necessary to support the project and communicate relevant updates.
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed">
+                                Users may request deletion of their personal information at any time.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">9. Open Science</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                DubbiOvi supports Open Science by providing:
+                            </p>
+                            <ul class="list-disc pl-6 space-y-2 text-[#6B7280] text-base">
+                                <li>open-access software;</li>
+                                <li>publicly available documentation;</li>
+                                <li>transparent development;</li>
+                                <li>version-controlled source code;</li>
+                                <li>reproducible releases through GitHub and Zenodo.</li>
+                            </ul>
+                            <p class="text-base text-[#6B7280] leading-relaxed mt-4">
+                                Whenever possible, software outputs and documentation are distributed under permissive open-source licences.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">10. FAIR Principles</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                The project is committed to the FAIR principles:
+                            </p>
+                            <ul class="list-disc pl-6 space-y-2 text-[#6B7280] text-base">
+                                <li>Findable through GitHub and Zenodo.</li>
+                                <li>Accessible as open-access software.</li>
+                                <li>Interoperable using widely adopted file formats.</li>
+                                <li>Reusable under the MIT License.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">11. GDPR Compliance</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                DubbiOvi has been designed to align with the principles established by the General Data Protection Regulation (EU Regulation 2016/679), including:
+                            </p>
+                            <ul class="list-disc pl-6 space-y-2 text-[#6B7280] text-base">
+                                <li>lawfulness;</li>
+                                <li>fairness;</li>
+                                <li>transparency;</li>
+                                <li>purpose limitation;</li>
+                                <li>data minimisation;</li>
+                                <li>accuracy;</li>
+                                <li>storage limitation;</li>
+                                <li>integrity and confidentiality.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">12. Contact</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                For questions regarding data management, please contact:
+                            </p>
+                            <p class="text-base text-[#111827] font-semibold leading-relaxed mb-1">
+                                Alfonso C. Rodríguez Fernández-Peña
+                            </p>
+                            <p class="text-base text-[#6B7280] leading-relaxed">
+                                University of Oviedo<br>
+                                Email: <a href="mailto:rodriguezalfonso@uniovi.es" class="text-[#00C853] hover:underline">rodriguezalfonso@uniovi.es</a><br>
+                                Project website: <a href="https://dubbiovi.com" target="_blank" rel="noopener noreferrer" class="text-[#00C853] hover:underline">https://dubbiovi.com</a><br>
+                                GitHub repository: <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="text-[#00C853] hover:underline">https://github.com/alfonsospain/DubbiOvi</a>
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-4 border-b border-gray-100 pb-2 font-heading">13. Version History</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed mb-4">
+                                <strong>Version 1.0 (July 2026)</strong><br>
+                                Initial Data Management Plan released together with the public open-source version of DubbiOvi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#FAFAFC] border-t border-[#E5E7EB] py-12 text-sm text-[#6B7280]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <!-- Logo & Copyright -->
+            <div class="flex items-start gap-3 text-left">
+                <div class="w-6 h-6 rounded-md flex items-center justify-center font-bold text-white text-xs tracking-tighter shrink-0 mt-0.5" style="background: linear-gradient(135deg, #009E52 0%, #00C853 100%); box-shadow: 0 0 8px rgba(0, 200, 83, 0.3);">
+                    DO
+                </div>
+                <div class="leading-relaxed">
+                    Developed by<br>
+                    <span class="font-medium text-[#111827]">Alfonso C. Rodríguez Fernández-Peña</span>
+                    <span class="block mt-2">Copyright</span>
+                    © Universidad de Oviedo, 2026.<br>
+                    All rights reserved.
+                </div>
+            </div>
+
+            <!-- License & Links -->
+            <div class="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
+                <div class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
+                    <span>Distributed under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="hover:text-[#111827] underline decoration-dotted">MIT License</a>.</span>
+                    <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="hover:text-[#111827] transition-colors">
+                        GitHub Repository
+                    </a>
+                    <a href="https://doi.org/10.5281/zenodo.20683887" target="_blank" rel="noopener noreferrer" class="hover:text-[#111827] transition-colors">
+                        DOI
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-end items-center gap-x-6 gap-y-2">
+                    <a href="../privacy/" class="hover:text-[#111827] transition-colors">
+                        Privacy Policy
+                    </a>
+                    <a href="../data-management/" class="hover:text-[#111827] font-semibold text-[#00C853] transition-colors">
+                        Data Management Plan
+                    </a>
+                    <span class="text-xs font-semibold px-2 py-0.5 rounded bg-gray-200/50 text-[#111827]">UniOvi Collaboration</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Script file -->
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -227,7 +227,7 @@
                         <label class="flex items-start gap-3 cursor-pointer">
                             <input type="checkbox" id="privacy" name="privacy" class="w-4 h-4 text-[#00C853] focus:ring-[#00C853] border-gray-300 rounded mt-1">
                             <span class="text-sm text-gray-600 leading-tight select-none">
-                                I have read and accept the <a href="#" class="text-[#00C853] hover:underline" target="_blank">Privacy Policy</a>. <span class="text-red-500">*</span>
+                                I have read and accept the <a href="../privacy/" class="text-[#00C853] hover:underline" target="_blank">Privacy Policy</a>. <span class="text-red-500">*</span>
                             </span>
                         </label>
                         <span id="privacy-error" class="text-xs text-red-500 mt-1 hidden">You must accept the privacy policy to download.</span>
@@ -281,15 +281,25 @@
             </div>
 
             <!-- License & Links -->
-            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-                <span>Distributed under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="hover:text-[#111827] underline decoration-dotted">MIT License</a>.</span>
-                <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="hover:text-[#111827] transition-colors">
-                    GitHub Repository
-                </a>
-                <a href="https://doi.org/10.5281/zenodo.20683887" target="_blank" rel="noopener noreferrer" class="hover:text-[#111827] transition-colors">
-                    DOI
-                </a>
-                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-gray-200/50 text-[#111827]">UniOvi Collaboration</span>
+            <div class="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
+                <div class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
+                    <span>Distributed under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="hover:text-[#111827] underline decoration-dotted">MIT License</a>.</span>
+                    <a href="https://github.com/alfonsospain/DubbiOvi" target="_blank" rel="noopener noreferrer" class="hover:text-[#111827] transition-colors">
+                        GitHub Repository
+                    </a>
+                    <a href="https://doi.org/10.5281/zenodo.20683887" target="_blank" rel="noopener noreferrer" class="hover:text-[#111827] transition-colors">
+                        DOI
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-end items-center gap-x-6 gap-y-2">
+                    <a href="../privacy/" class="hover:text-[#111827] transition-colors">
+                        Privacy Policy
+                    </a>
+                    <a href="../data-management/" class="hover:text-[#111827] transition-colors">
+                        Data Management Plan
+                    </a>
+                    <span class="text-xs font-semibold px-2 py-0.5 rounded bg-gray-200/50 text-[#111827]">UniOvi Collaboration</span>
+                </div>
             </div>
 
         </div>
