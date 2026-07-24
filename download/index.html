@@ -222,15 +222,30 @@
                         <span id="platform-error" class="text-xs text-red-500 mt-1 hidden">Please select your operating system.</span>
                     </div>
 
-                    <!-- Privacy Checkbox -->
+                    <!-- Privacy Checkbox (Required) -->
                     <div class="flex flex-col">
                         <label class="flex items-start gap-3 cursor-pointer">
-                            <input type="checkbox" id="privacy" name="privacy" class="w-4 h-4 text-[#00C853] focus:ring-[#00C853] border-gray-300 rounded mt-1">
+                            <input type="checkbox" id="privacyAccepted" name="privacyAccepted" class="w-4 h-4 text-[#00C853] focus:ring-[#00C853] border-gray-300 rounded mt-1">
                             <span class="text-sm text-gray-600 leading-tight select-none">
-                                I have read and accept the <a href="../privacy/" class="text-[#00C853] hover:underline" target="_blank">Privacy Policy</a>. <span class="text-red-500">*</span>
+                                I have read and understood the <a href="../privacy/" class="text-[#00C853] hover:underline" target="_blank">Privacy Policy</a> and the <a href="../data-management/" class="text-[#00C853] hover:underline" target="_blank">Data Management Plan</a>. <span class="text-red-500">*</span>
                             </span>
                         </label>
-                        <span id="privacy-error" class="text-xs text-red-500 mt-1 hidden">You must accept the privacy policy to download.</span>
+                        <span id="privacyAccepted-error" class="text-xs text-red-500 mt-1 hidden">You must accept the Privacy Policy and the Data Management Plan to download.</span>
+                    </div>
+
+                    <!-- Updates Consent Checkbox (Optional) -->
+                    <div class="flex flex-col">
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" id="updatesConsent" name="updatesConsent" class="w-4 h-4 text-[#00C853] focus:ring-[#00C853] border-gray-300 rounded mt-1">
+                            <span class="text-sm text-gray-600 leading-tight select-none">
+                                I would like to receive occasional email updates about new DubbiOvi releases, tutorials and project news.
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Local-First Architecture Note -->
+                    <div class="text-xs text-[#6B7280] leading-relaxed mt-2">
+                        DubbiOvi follows a local-first architecture. Your audiovisual materials are never uploaded to the University of Oviedo. Registration information is used solely for project administration and, where you choose to opt in, occasional project updates.
                     </div>
 
                     <!-- General Form Error Message Banner -->
@@ -326,7 +341,8 @@
             const institution = document.getElementById('institution');
             const country = document.getElementById('country');
             const email = document.getElementById('email');
-            const privacy = document.getElementById('privacy');
+            const privacyAccepted = document.getElementById('privacyAccepted');
+            const updatesConsent = document.getElementById('updatesConsent');
             
             const winRadio = document.querySelector('input[value="windows"]');
             const macRadio = document.querySelector('input[value="macos"]');
@@ -366,9 +382,9 @@
                 });
             });
 
-            privacy.addEventListener('change', () => {
-                if (privacy.checked) {
-                    clearError('privacy');
+            privacyAccepted.addEventListener('change', () => {
+                if (privacyAccepted.checked) {
+                    clearError('privacyAccepted');
                 }
             });
 
@@ -528,11 +544,11 @@
                     clearError('platform');
                 }
 
-                if (!privacy.checked) {
-                    showError('privacy', 'You must accept the privacy policy to download.');
+                if (!privacyAccepted.checked) {
+                    showError('privacyAccepted', 'You must accept the Privacy Policy and the Data Management Plan to download.');
                     isValid = false;
                 } else {
-                    clearError('privacy');
+                    clearError('privacyAccepted');
                 }
 
                 return isValid;
@@ -551,7 +567,9 @@
                     email: email.value.trim(),
                     platform: platform,
                     softwareVersion: SOFTWARE_VERSION,
-                    timestamp: new Date().toISOString()
+                    timestamp: new Date().toISOString(),
+                    privacyAccepted: privacyAccepted.checked,
+                    updatesConsent: updatesConsent.checked
                 };
             }
 

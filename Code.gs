@@ -8,22 +8,42 @@ function doPost(e) {
   var response;
   
   try {
-    // 1. Parsing the incoming payload (urlencoded format)
-    Logger.log("STEP 1: Reading incoming urlencoded payload from e.parameter...");
+    // 1. Parsing the incoming payload
+    Logger.log("STEP 1: Reading incoming payload...");
     Logger.log("Parameters received: " + JSON.stringify(e.parameter));
-    Logger.log("STEP 1 COMPLETE: Parameter object accessed successfully.");
+    if (e.postData && e.postData.contents) {
+      Logger.log("Post data contents received: " + e.postData.contents);
+    }
+    
+    var data = {};
+    if (e.postData && e.postData.contents) {
+      try {
+        data = JSON.parse(e.postData.contents);
+      } catch (err) {
+        Logger.log("Error parsing JSON body: " + err.toString());
+      }
+    }
+    Logger.log("STEP 1 COMPLETE: Payload parsed successfully.");
 
     // 2. Extracting variables
-    Logger.log("STEP 2: Starting to extract variables from parameters...");
-    var firstName = e.parameter.firstName;
-    var lastName = e.parameter.lastName;
-    var institution = e.parameter.institution;
-    var country = e.parameter.country;
-    var email = e.parameter.email;
-    var platform = e.parameter.platform;
-    var softwareVersion = e.parameter.softwareVersion;
-    var timestamp = e.parameter.timestamp;
-    Logger.log("STEP 2 COMPLETE: Variables extracted successfully from parameters. Registered email: " + email + ", Platform: " + platform);
+    Logger.log("STEP 2: Starting to extract variables...");
+    var firstName = data.firstName || e.parameter.firstName;
+    var lastName = data.lastName || e.parameter.lastName;
+    var institution = data.institution || e.parameter.institution;
+    var country = data.country || e.parameter.country;
+    var email = data.email || e.parameter.email;
+    var platform = data.platform || e.parameter.platform;
+    var softwareVersion = data.softwareVersion || e.parameter.softwareVersion;
+    var timestamp = data.timestamp || e.parameter.timestamp;
+    
+    var privacyAccepted = data.privacyAccepted !== undefined ? data.privacyAccepted : e.parameter.privacyAccepted;
+    var updatesConsent = data.updatesConsent !== undefined ? data.updatesConsent : e.parameter.updatesConsent;
+    
+    // Normalize to boolean
+    privacyAccepted = (privacyAccepted === true || privacyAccepted === "true");
+    updatesConsent = (updatesConsent === true || updatesConsent === "true");
+    
+    Logger.log("STEP 2 COMPLETE: Variables extracted. Email: " + email + ", Platform: " + platform + ", Privacy Accepted: " + privacyAccepted + ", Updates Consent: " + updatesConsent);
 
     // 3. Writing to Google Sheets
     Logger.log("STEP 3: Starting to write registration data to Google Sheets...");
@@ -36,7 +56,9 @@ function doPost(e) {
       institution, 
       country, 
       platform, 
-      softwareVersion
+      softwareVersion,
+      privacyAccepted,
+      updatesConsent
     ]);
     Logger.log("STEP 3 COMPLETE: Appended registration row to Google Sheets successfully.");
 
@@ -51,7 +73,10 @@ function doPost(e) {
                     "Country: " + country + "\n" +
                     "Platform: " + platform + "\n" +
                     "Version: " + softwareVersion + "\n" +
-                    "Time: " + timestamp;
+                    "Time: " + timestamp + "\n\n" +
+                    "GDPR Consent & Preferences:\n" +
+                    "- Privacy Policy & DMP Accepted: " + (privacyAccepted ? "Yes" : "No") + "\n" +
+                    "- Consented to occasional email updates: " + (updatesConsent ? "Yes" : "No");
     GmailApp.sendEmail(adminEmail, adminSubject, adminBody);
     Logger.log("STEP 4 COMPLETE: Administrator notification email sent to: " + adminEmail);
 
